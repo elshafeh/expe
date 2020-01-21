@@ -1,0 +1,642 @@
+Scenario - bike_pilot_practice
+Logfile written - 09/16/2019 15:24:09
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+sub05	1	Picture	instruct	10133	0	1	9064	1	0	next	other	0
+sub05	1	Response	1	19079	8946	1
+sub05	2	Picture	cross_start	19197	0	1	10130	1	0	10000	other	0
+sub05	2	Picture	arrow_right	29327	10130	1	2533	1	10000	2500	other	0
+sub05	2	Picture	cross_default	31859	12662	1	3865	1	12500	3750	other	0
+sub05	2	Picture	arrow_left	35725	16528	1	2532	1	16250	2500	other	0
+sub05	2	Picture	cross_default	38257	19060	1	2533	1	18750	2500	other	0
+sub05	2	Picture	arrow_stay	40790	21593	1	2532	1	21250	2500	other	0
+sub05	2	Picture	cross_default	43322	24125	1	2533	1	23750	2500	other	0
+sub05	2	Picture	arrow_stay	45855	26658	1	2533	1	26250	2500	other	0
+sub05	2	Picture	cross_default	48387	29190	1	3865	1	28750	3750	other	0
+sub05	2	Picture	arrow_switch	52252	33056	1	2532	1	32500	2500	other	0
+sub05	2	Picture	cross_respond	54785	35588	1	2532	1	35000	2500	other	0
+sub05	2	Picture	cross_wait	57317	38121	1	4265	1	37500	next	hit	15
+sub05	2	Response	1	61478	42281	1
+sub05	2A	Picture	correct	61583	0	1	2133	1	0	2000	other	0
+sub05	3	Picture	cross_start	63849	0	1	10130	1	0	10000	other	0
+sub05	3	Picture	arrow_left	73978	10130	1	2533	1	10000	2500	other	0
+sub05	3	Picture	cross_default	76511	12662	1	3865	1	12500	3750	other	0
+sub05	3	Picture	arrow_right	80376	16528	1	2533	1	16250	2500	other	0
+sub05	3	Picture	cross_default	82909	19060	1	2533	1	18750	2500	other	0
+sub05	3	Picture	arrow_stay	85441	21593	1	2532	1	21250	2500	other	0
+sub05	3	Picture	cross_default	87974	24125	1	2533	1	23750	2500	other	0
+sub05	3	Picture	arrow_switch	90506	26658	1	2533	1	26250	2500	other	0
+sub05	3	Picture	cross_default	93039	29190	1	3865	1	28750	3750	other	0
+sub05	3	Picture	arrow_stay	96904	33056	1	2533	1	32500	2500	other	0
+sub05	3	Picture	cross_respond	99437	35588	1	2533	1	35000	2500	other	0
+sub05	3	Picture	cross_wait	101969	38121	1	4132	1	37500	next	miss	0
+sub05	3	Response	2	106037	42189	1
+sub05	3A	Picture	incorrect	106101	0	1	2133	1	0	2000	other	0
+sub05	4	Picture	cross_start	108367	0	1	10130	1	0	10000	other	0
+sub05	4	Picture	arrow_left	118497	10130	1	2532	1	10000	2500	other	0
+sub05	4	Picture	cross_default	121029	12662	1	3866	1	12500	3750	other	0
+sub05	4	Picture	cross_default	124895	16528	1	2532	1	16250	2500	other	0
+sub05	4	Picture	cross_default	127427	19060	1	2533	1	18750	2500	other	0
+sub05	4	Picture	cross_default	129960	21593	1	2532	1	21250	2500	other	0
+sub05	4	Picture	cross_default	132492	24125	1	2532	1	23750	2500	other	0
+sub05	4	Picture	cross_default	135025	26658	1	2533	1	26250	2500	other	0
+sub05	4	Picture	cross_default	137557	29190	1	3865	1	28750	3750	other	0
+sub05	4	Picture	arrow_stay	141423	33056	1	2532	1	32500	2500	other	0
+sub05	4	Picture	cross_respond	143955	35588	1	2532	1	35000	2500	other	0
+sub05	4	Picture	cross_wait	146488	38121	1	11996	1	37500	next	hit	43
+sub05	4	Response	1	158356	49989	1
+sub05	4A	Picture	correct	158484	0	1	2133	1	0	2000	other	0
+sub05	5	Picture	cross_start	160750	0	1	10130	1	0	10000	other	0
+sub05	5	Picture	arrow_left	170880	10130	1	2532	1	10000	2500	other	0
+sub05	5	Picture	cross_default	173412	12662	1	3865	1	12500	3750	other	0
+sub05	5	Picture	arrow_stay	177277	16528	1	2533	1	16250	2500	other	0
+sub05	5	Picture	cross_default	179810	19060	1	2532	1	18750	2500	other	0
+sub05	5	Picture	arrow_switch	182342	21593	1	2532	1	21250	2500	other	0
+sub05	5	Picture	cross_default	184875	24125	1	2533	1	23750	2500	other	0
+sub05	5	Picture	arrow_stay	187407	26658	1	2532	1	26250	2500	other	0
+sub05	5	Picture	cross_default	189940	29190	1	3865	1	28750	3750	other	0
+sub05	5	Picture	arrow_stay	193805	33056	1	2532	1	32500	2500	other	0
+sub05	5	Picture	cross_respond	196338	35588	1	2533	1	35000	2500	other	0
+sub05	5	Picture	cross_wait	198870	38121	1	4665	1	37500	next	hit	57
+sub05	5	Response	1	203395	42646	1
+sub05	5A	Picture	correct	203535	0	1	2133	1	0	2000	other	0
+sub05	6	Picture	cross_start	205801	0	1	10130	1	0	10000	other	0
+sub05	6	Picture	arrow_right	215931	10130	1	2532	1	10000	2500	other	0
+sub05	6	Picture	cross_default	218464	12662	1	3866	1	12500	3750	other	0
+sub05	6	Picture	cross_default	222329	16528	1	2532	1	16250	2500	other	0
+sub05	6	Picture	cross_default	224862	19060	1	2532	1	18750	2500	other	0
+sub05	6	Picture	cross_default	227394	21593	1	2533	1	21250	2500	other	0
+sub05	6	Picture	cross_default	229927	24125	1	2533	1	23750	2500	other	0
+sub05	6	Picture	cross_default	232459	26658	1	2533	1	26250	2500	other	0
+sub05	6	Picture	cross_default	234992	29190	1	3865	1	28750	3750	other	0
+sub05	6	Picture	arrow_stay	238857	33056	1	2533	1	32500	2500	other	0
+sub05	6	Picture	cross_respond	241390	35588	1	2533	1	35000	2500	other	0
+sub05	6	Picture	cross_wait	243922	38121	1	15995	1	37500	next	miss	0
+sub05	6	Response	1	259794	53993	1
+sub05	6A	Picture	incorrect	259917	0	1	2133	1	0	2000	other	0
+sub05	7	Picture	cross_start	262183	0	1	10130	1	0	10000	other	0
+sub05	7	Picture	arrow_right	272313	10130	1	2533	1	10000	2500	other	0
+sub05	7	Picture	cross_default	274845	12662	1	3865	1	12500	3750	other	0
+sub05	7	Picture	arrow_stay	278710	16528	1	2533	1	16250	2500	other	0
+sub05	7	Picture	cross_default	281243	19060	1	2533	1	18750	2500	other	0
+sub05	7	Picture	arrow_switch	283776	21593	1	2532	1	21250	2500	other	0
+sub05	7	Picture	cross_default	286308	24125	1	2533	1	23750	2500	other	0
+sub05	7	Picture	arrow_switch	288840	26658	1	2532	1	26250	2500	other	0
+sub05	7	Picture	cross_default	291373	29190	1	3865	1	28750	3750	other	0
+sub05	7	Picture	arrow_stay	295238	33056	1	2533	1	32500	2500	other	0
+sub05	7	Picture	cross_respond	297771	35588	1	2532	1	35000	2500	other	0
+sub05	7	Picture	cross_wait	300303	38121	1	4265	1	37500	next	hit	85
+sub05	7	Response	2	304433	42251	1
+sub05	7A	Picture	correct	304569	0	1	2133	1	0	2000	other	0
+sub05	8	Picture	cross_start	306834	0	1	10130	1	0	10000	other	0
+sub05	8	Picture	arrow_right	316964	10130	1	2533	1	10000	2500	other	0
+sub05	8	Picture	cross_default	319497	12663	1	3865	1	12500	3750	other	0
+sub05	8	Picture	arrow_switch	323362	16528	1	2533	1	16250	2500	other	0
+sub05	8	Picture	cross_default	325895	19060	1	2532	1	18750	2500	other	0
+sub05	8	Picture	arrow_left	328427	21593	1	2532	1	21250	2500	other	0
+sub05	8	Picture	cross_default	330960	24125	1	2532	1	23750	2500	other	0
+sub05	8	Picture	arrow_right	333492	26658	1	2533	1	26250	2500	other	0
+sub05	8	Picture	cross_default	336025	29190	1	3865	1	28750	3750	other	0
+sub05	8	Picture	arrow_switch	339890	33056	1	2532	1	32500	2500	other	0
+sub05	8	Picture	cross_respond	342423	35588	1	2533	1	35000	2500	other	0
+sub05	8	Picture	cross_wait	344955	38121	1	8797	1	37500	next	hit	99
+sub05	8	Response	1	353713	46878	1
+sub05	8A	Picture	correct	353752	0	1	2133	1	0	2000	other	0
+sub05	9	Picture	cross_start	356018	0	1	10130	1	0	10000	other	0
+sub05	9	Picture	arrow_right	366148	10130	1	2532	1	10000	2500	other	0
+sub05	9	Picture	cross_default	368681	12663	1	3865	1	12500	3750	other	0
+sub05	9	Picture	arrow_left	372546	16528	1	2532	1	16250	2500	other	0
+sub05	9	Picture	cross_default	375078	19060	1	2533	1	18750	2500	other	0
+sub05	9	Picture	arrow_switch	377611	21593	1	2532	1	21250	2500	other	0
+sub05	9	Picture	cross_default	380143	24125	1	2533	1	23750	2500	other	0
+sub05	9	Picture	arrow_left	382676	26658	1	2532	1	26250	2500	other	0
+sub05	9	Picture	cross_default	385208	29190	1	3866	1	28750	3750	other	0
+sub05	9	Picture	arrow_stay	389074	33056	1	2532	1	32500	2500	other	0
+sub05	9	Picture	cross_respond	391606	35588	1	2533	1	35000	2500	other	0
+sub05	9	Picture	cross_wait	394139	38121	1	6398	1	37500	next	hit	113
+sub05	9	Response	2	400432	44414	1
+sub05	9A	Picture	correct	400537	0	1	2133	1	0	2000	other	0
+sub05	10	Picture	cross_start	402803	0	1	10130	1	0	10000	other	0
+sub05	10	Picture	arrow_left	412932	10130	1	2533	1	10000	2500	other	0
+sub05	10	Picture	cross_default	415465	12663	1	3865	1	12500	3750	other	0
+sub05	10	Picture	cross_default	419330	16528	1	2532	1	16250	2500	other	0
+sub05	10	Picture	cross_default	421863	19060	1	2533	1	18750	2500	other	0
+sub05	10	Picture	cross_default	424395	21593	1	2532	1	21250	2500	other	0
+sub05	10	Picture	cross_default	426928	24125	1	2533	1	23750	2500	other	0
+sub05	10	Picture	cross_default	429460	26658	1	2532	1	26250	2500	other	0
+sub05	10	Picture	cross_default	431993	29190	1	3865	1	28750	3750	other	0
+sub05	10	Picture	arrow_switch	435858	33056	1	2532	1	32500	2500	other	0
+sub05	10	Picture	cross_respond	438391	35588	1	2533	1	35000	2500	other	0
+sub05	10	Picture	cross_wait	440923	38121	1	7731	1	37500	next	hit	127
+sub05	10	Response	2	448591	45788	1
+sub05	10A	Picture	correct	448654	0	1	2133	1	0	2000	other	0
+sub05	11	Picture	cross_start	450920	0	1	10130	1	0	10000	other	0
+sub05	11	Picture	arrow_right	461050	10130	1	2532	1	10000	2500	other	0
+sub05	11	Picture	cross_default	463582	12662	1	3865	1	12500	3750	other	0
+sub05	11	Picture	arrow_stay	467448	16528	1	2533	1	16250	2500	other	0
+sub05	11	Picture	cross_default	469980	19060	1	2532	1	18750	2500	other	0
+sub05	11	Picture	arrow_stay	472513	21593	1	2533	1	21250	2500	other	0
+sub05	11	Picture	cross_default	475045	24125	1	2533	1	23750	2500	other	0
+sub05	11	Picture	arrow_switch	477578	26658	1	2532	1	26250	2500	other	0
+sub05	11	Picture	cross_default	480110	29190	1	3865	1	28750	3750	other	0
+sub05	11	Picture	arrow_switch	483976	33056	1	2533	1	32500	2500	other	0
+sub05	11	Picture	cross_respond	486508	35588	1	2533	1	35000	2500	other	0
+sub05	11	Picture	cross_wait	489041	38121	1	9997	1	37500	next	miss	0
+sub05	11	Response	2	498990	48070	1
+sub05	11A	Picture	incorrect	499037	0	1	2133	1	0	2000	other	0
+sub05	12	Picture	cross_start	501303	0	1	10130	1	0	10000	other	0
+sub05	12	Picture	arrow_left	511433	10130	1	2532	1	10000	2500	other	0
+sub05	12	Picture	cross_default	513966	12662	1	3865	1	12500	3750	other	0
+sub05	12	Picture	cross_default	517831	16528	1	2532	1	16250	2500	other	0
+sub05	12	Picture	cross_default	520363	19060	1	2533	1	18750	2500	other	0
+sub05	12	Picture	cross_default	522896	21593	1	2532	1	21250	2500	other	0
+sub05	12	Picture	cross_default	525429	24125	1	2532	1	23750	2500	other	0
+sub05	12	Picture	cross_default	527961	26658	1	2533	1	26250	2500	other	0
+sub05	12	Picture	cross_default	530493	29190	1	3865	1	28750	3750	other	0
+sub05	12	Picture	arrow_switch	534359	33056	1	2533	1	32500	2500	other	0
+sub05	12	Picture	cross_respond	536891	35588	1	2532	1	35000	2500	other	0
+sub05	12	Picture	cross_wait	539424	38121	1	10397	1	37500	next	hit	155
+sub05	12	Response	2	549789	48486	1
+sub05	12A	Picture	correct	549820	0	1	2133	1	0	2000	other	0
+sub05	13	Picture	cross_start	552086	0	1	10130	1	0	10000	other	0
+sub05	13	Picture	arrow_right	562216	10130	1	2532	1	10000	2500	other	0
+sub05	13	Picture	cross_default	564749	12662	1	3865	1	12500	3750	other	0
+sub05	13	Picture	cross_default	568614	16528	1	2533	1	16250	2500	other	0
+sub05	13	Picture	cross_default	571147	19060	1	2532	1	18750	2500	other	0
+sub05	13	Picture	cross_default	573679	21593	1	2532	1	21250	2500	other	0
+sub05	13	Picture	cross_default	576212	24125	1	2533	1	23750	2500	other	0
+sub05	13	Picture	cross_default	578744	26658	1	2533	1	26250	2500	other	0
+sub05	13	Picture	cross_default	581277	29190	1	3865	1	28750	3750	other	0
+sub05	13	Picture	arrow_switch	585142	33056	1	2532	1	32500	2500	other	0
+sub05	13	Picture	cross_respond	587674	35588	1	2533	1	35000	2500	other	0
+sub05	13	Picture	cross_wait	590207	38121	1	9863	1	37500	next	hit	169
+sub05	13	Response	1	600028	47942	1
+sub05	13A	Picture	correct	600070	0	1	2133	1	0	2000	other	0
+sub05	14	Picture	cross_start	602336	0	1	10130	1	0	10000	other	0
+sub05	14	Picture	arrow_left	612466	10130	1	2532	1	10000	2500	other	0
+sub05	14	Picture	cross_default	614999	12663	1	3865	1	12500	3750	other	0
+sub05	14	Picture	arrow_left	618864	16527	1	2533	1	16250	2500	other	0
+sub05	14	Picture	cross_default	621397	19060	1	2532	1	18750	2500	other	0
+sub05	14	Picture	arrow_stay	623929	21593	1	2532	1	21250	2500	other	0
+sub05	14	Picture	cross_default	626462	24125	1	2533	1	23750	2500	other	0
+sub05	14	Picture	arrow_left	628994	26658	1	2533	1	26250	2500	other	0
+sub05	14	Picture	cross_default	631527	29190	1	3865	1	28750	3750	other	0
+sub05	14	Picture	arrow_stay	635392	33056	1	2533	1	32500	2500	other	0
+sub05	14	Picture	cross_respond	637924	35588	1	2533	1	35000	2500	other	0
+sub05	14	Picture	cross_wait	640457	38121	1	15461	1	37500	next	hit	183
+sub05	14	Response	1	655787	53451	1
+sub05	14A	Picture	correct	655918	0	1	2133	1	0	2000	other	0
+sub05	15	Picture	cross_start	658184	0	1	10130	1	0	10000	other	0
+sub05	15	Picture	arrow_right	668314	10130	1	2532	1	10000	2500	other	0
+sub05	15	Picture	cross_default	670847	12662	1	3865	1	12500	3750	other	0
+sub05	15	Picture	cross_default	674712	16528	1	2533	1	16250	2500	other	0
+sub05	15	Picture	cross_default	677245	19060	1	2532	1	18750	2500	other	0
+sub05	15	Picture	cross_default	679777	21593	1	2533	1	21250	2500	other	0
+sub05	15	Picture	cross_default	682310	24125	1	2532	1	23750	2500	other	0
+sub05	15	Picture	cross_default	684842	26658	1	2533	1	26250	2500	other	0
+sub05	15	Picture	cross_default	687375	29190	1	3865	1	28750	3750	other	0
+sub05	15	Picture	arrow_stay	691240	33056	1	2533	1	32500	2500	other	0
+sub05	15	Picture	cross_respond	693773	35588	1	2533	1	35000	2500	other	0
+sub05	15	Picture	cross_wait	696305	38121	1	9330	1	37500	next	hit	197
+sub05	15	Response	2	705546	47362	1
+sub05	15A	Picture	correct	705635	0	1	2133	1	0	2000	other	0
+sub05	16	Picture	cross_start	707901	0	1	10130	1	0	10000	other	0
+sub05	16	Picture	arrow_right	718031	10130	1	2533	1	10000	2500	other	0
+sub05	16	Picture	cross_default	720564	12662	1	3865	1	12500	3750	other	0
+sub05	16	Picture	arrow_right	724429	16528	1	2532	1	16250	2500	other	0
+sub05	16	Picture	cross_default	726961	19060	1	2533	1	18750	2500	other	0
+sub05	16	Picture	arrow_switch	729494	21593	1	2533	1	21250	2500	other	0
+sub05	16	Picture	cross_default	732027	24125	1	2532	1	23750	2500	other	0
+sub05	16	Picture	arrow_right	734559	26658	1	2533	1	26250	2500	other	0
+sub05	16	Picture	cross_default	737091	29190	1	3865	1	28750	3750	other	0
+sub05	16	Picture	arrow_stay	740957	33056	1	2533	1	32500	2500	other	0
+sub05	16	Picture	cross_respond	743489	35588	1	2532	1	35000	2500	other	0
+sub05	16	Picture	cross_wait	746022	38121	1	9064	1	37500	next	hit	211
+sub05	16	Response	2	754986	47084	1
+sub05	16A	Picture	correct	755086	0	1	2133	1	0	2000	other	0
+sub05	17	Picture	cross_start	757351	0	1	10130	1	0	10000	other	0
+sub05	17	Picture	arrow_right	767481	10130	1	2533	1	10000	2500	other	0
+sub05	17	Picture	cross_default	770014	12663	1	3865	1	12500	3750	other	0
+sub05	17	Picture	arrow_right	773879	16528	1	2533	1	16250	2500	other	0
+sub05	17	Picture	cross_default	776412	19060	1	2532	1	18750	2500	other	0
+sub05	17	Picture	arrow_stay	778944	21593	1	2532	1	21250	2500	other	0
+sub05	17	Picture	cross_default	781477	24125	1	2533	1	23750	2500	other	0
+sub05	17	Picture	arrow_left	784009	26658	1	2532	1	26250	2500	other	0
+sub05	17	Picture	cross_default	786542	29190	1	3865	1	28750	3750	other	0
+sub05	17	Picture	arrow_switch	790407	33056	1	2532	1	32500	2500	other	0
+sub05	17	Picture	cross_respond	792940	35588	1	2532	1	35000	2500	other	0
+sub05	17	Picture	cross_wait	795472	38121	1	11196	1	37500	next	hit	225
+sub05	17	Response	1	806585	49233	1
+sub05	17A	Picture	correct	806668	0	1	2133	1	0	2000	other	0
+sub05	18	Picture	cross_start	808934	0	1	10130	1	0	10000	other	0
+sub05	18	Picture	arrow_left	819064	10130	1	2533	1	10000	2500	other	0
+sub05	18	Picture	cross_default	821597	12663	1	3865	1	12500	3750	other	0
+sub05	18	Picture	arrow_switch	825462	16528	1	2533	1	16250	2500	other	0
+sub05	18	Picture	cross_default	827995	19060	1	2532	1	18750	2500	other	0
+sub05	18	Picture	arrow_switch	830527	21593	1	2532	1	21250	2500	other	0
+sub05	18	Picture	cross_default	833060	24125	1	2532	1	23750	2500	other	0
+sub05	18	Picture	arrow_left	835592	26658	1	2532	1	26250	2500	other	0
+sub05	18	Picture	cross_default	838124	29190	1	3865	1	28750	3750	other	0
+sub05	18	Picture	arrow_switch	841990	33056	1	2532	1	32500	2500	other	0
+sub05	18	Picture	cross_respond	844522	35588	1	2533	1	35000	2500	other	0
+sub05	18	Picture	cross_wait	847055	38121	1	6265	1	37500	next	hit	239
+sub05	18	Response	2	853224	44290	1
+sub05	18A	Picture	correct	853320	0	1	2133	1	0	2000	other	0
+sub05	19	Picture	cross_start	855585	0	1	10130	1	0	10000	other	0
+sub05	19	Picture	arrow_left	865715	10130	1	2532	1	10000	2500	other	0
+sub05	19	Picture	cross_default	868248	12662	1	3866	1	12500	3750	other	0
+sub05	19	Picture	cross_default	872113	16528	1	2532	1	16250	2500	other	0
+sub05	19	Picture	cross_default	874646	19060	1	2533	1	18750	2500	other	0
+sub05	19	Picture	cross_default	877178	21593	1	2533	1	21250	2500	other	0
+sub05	19	Picture	cross_default	879711	24125	1	2533	1	23750	2500	other	0
+sub05	19	Picture	cross_default	882243	26658	1	2532	1	26250	2500	other	0
+sub05	19	Picture	cross_default	884776	29190	1	3865	1	28750	3750	other	0
+sub05	19	Picture	arrow_stay	888641	33056	1	2532	1	32500	2500	other	0
+sub05	19	Picture	cross_respond	891174	35588	1	2533	1	35000	2500	other	0
+sub05	19	Picture	cross_wait	893706	38121	1	11996	1	37500	next	hit	253
+sub05	19	Response	1	905622	50037	1
+sub05	19A	Picture	correct	905702	0	1	2133	1	0	2000	other	0
+sub05	20	Picture	cross_start	907968	0	1	10130	1	0	10000	other	0
+sub05	20	Picture	arrow_right	918098	10130	1	2532	1	10000	2500	other	0
+sub05	20	Picture	cross_default	920630	12662	1	3865	1	12500	3750	other	0
+sub05	20	Picture	cross_default	924496	16528	1	2533	1	16250	2500	other	0
+sub05	20	Picture	cross_default	927028	19060	1	2533	1	18750	2500	other	0
+sub05	20	Picture	cross_default	929561	21593	1	2532	1	21250	2500	other	0
+sub05	20	Picture	cross_default	932093	24125	1	2533	1	23750	2500	other	0
+sub05	20	Picture	cross_default	934626	26658	1	2533	1	26250	2500	other	0
+sub05	20	Picture	cross_default	937158	29190	1	3865	1	28750	3750	other	0
+sub05	20	Picture	arrow_switch	941024	33056	1	2533	1	32500	2500	other	0
+sub05	20	Picture	cross_respond	943556	35588	1	2532	1	35000	2500	other	0
+sub05	20	Picture	cross_wait	946089	38121	1	11463	1	37500	next	hit	267
+sub05	20	Response	1	957462	49494	1
+sub05	20A	Picture	correct	957551	0	1	2133	1	0	2000	other	0
+sub05	21	Picture	cross_start	959817	0	1	10130	1	0	10000	other	0
+sub05	21	Picture	arrow_right	969947	10130	1	2533	1	10000	2500	other	0
+sub05	21	Picture	cross_default	972480	12662	1	3865	1	12500	3750	other	0
+sub05	21	Picture	cross_default	976345	16528	1	2532	1	16250	2500	other	0
+sub05	21	Picture	cross_default	978878	19060	1	2533	1	18750	2500	other	0
+sub05	21	Picture	cross_default	981410	21593	1	2532	1	21250	2500	other	0
+sub05	21	Picture	cross_default	983943	24125	1	2532	1	23750	2500	other	0
+sub05	21	Picture	cross_default	986475	26658	1	2533	1	26250	2500	other	0
+sub05	21	Picture	cross_default	989008	29190	1	3865	1	28750	3750	other	0
+sub05	21	Picture	arrow_switch	992873	33056	1	2533	1	32500	2500	other	0
+sub05	21	Picture	cross_respond	995406	35588	1	2533	1	35000	2500	other	0
+sub05	21	Picture	cross_wait	997938	38121	1	9464	1	37500	next	hit	281
+sub05	21	Response	1	1007301	47484	1
+sub05	21A	Picture	correct	1007402	0	1	2133	1	0	2000	other	0
+sub05	22	Picture	cross_start	1009668	0	1	10130	1	0	10000	other	0
+sub05	22	Picture	arrow_right	1019798	10130	1	2532	1	10000	2500	other	0
+sub05	22	Picture	cross_default	1022330	12662	1	3865	1	12500	3750	other	0
+sub05	22	Picture	arrow_stay	1026195	16528	1	2532	1	16250	2500	other	0
+sub05	22	Picture	cross_default	1028728	19060	1	2533	1	18750	2500	other	0
+sub05	22	Picture	arrow_switch	1031260	21593	1	2532	1	21250	2500	other	0
+sub05	22	Picture	cross_default	1033793	24125	1	2533	1	23750	2500	other	0
+sub05	22	Picture	arrow_stay	1036325	26658	1	2533	1	26250	2500	other	0
+sub05	22	Picture	cross_default	1038858	29190	1	3865	1	28750	3750	other	0
+sub05	22	Picture	arrow_stay	1042723	33056	1	2533	1	32500	2500	other	0
+sub05	22	Picture	cross_respond	1045256	35588	1	2532	1	35000	2500	other	0
+sub05	22	Picture	cross_wait	1047788	38121	1	6531	1	37500	next	hit	295
+sub05	22	Response	2	1054180	44513	1
+sub05	22A	Picture	correct	1054319	0	1	2133	1	0	2000	other	0
+sub05	23	Picture	cross_start	1056585	0	1	10130	1	0	10000	other	0
+sub05	23	Picture	arrow_right	1066715	10130	1	2533	1	10000	2500	other	0
+sub05	23	Picture	cross_default	1069248	12662	1	3865	1	12500	3750	other	0
+sub05	23	Picture	cross_default	1073113	16528	1	2533	1	16250	2500	other	0
+sub05	23	Picture	cross_default	1075646	19060	1	2533	1	18750	2500	other	0
+sub05	23	Picture	cross_default	1078178	21593	1	2532	1	21250	2500	other	0
+sub05	23	Picture	cross_default	1080711	24125	1	2533	1	23750	2500	other	0
+sub05	23	Picture	cross_default	1083243	26658	1	2532	1	26250	2500	other	0
+sub05	23	Picture	cross_default	1085776	29190	1	3865	1	28750	3750	other	0
+sub05	23	Picture	arrow_stay	1089641	33056	1	2533	1	32500	2500	other	0
+sub05	23	Picture	cross_respond	1092173	35588	1	2533	1	35000	2500	other	0
+sub05	23	Picture	cross_wait	1094706	38121	1	5731	1	37500	next	hit	309
+sub05	23	Response	2	1100419	43834	1
+sub05	23A	Picture	correct	1100437	0	1	2133	1	0	2000	other	0
+sub05	24	Picture	cross_start	1102703	0	1	10130	1	0	10000	other	0
+sub05	24	Picture	arrow_left	1112833	10130	1	2532	1	10000	2500	other	0
+sub05	24	Picture	cross_default	1115366	12662	1	3865	1	12500	3750	other	0
+sub05	24	Picture	cross_default	1119231	16528	1	2533	1	16250	2500	other	0
+sub05	24	Picture	cross_default	1121764	19060	1	2532	1	18750	2500	other	0
+sub05	24	Picture	cross_default	1124296	21593	1	2533	1	21250	2500	other	0
+sub05	24	Picture	cross_default	1126829	24125	1	2532	1	23750	2500	other	0
+sub05	24	Picture	cross_default	1129361	26658	1	2532	1	26250	2500	other	0
+sub05	24	Picture	cross_default	1131894	29190	1	3865	1	28750	3750	other	0
+sub05	24	Picture	arrow_switch	1135759	33056	1	2533	1	32500	2500	other	0
+sub05	24	Picture	cross_respond	1138291	35588	1	2533	1	35000	2500	other	0
+sub05	24	Picture	cross_wait	1140824	38121	1	5465	1	37500	next	hit	323
+sub05	24	Response	2	1146259	43555	1
+sub05	24A	Picture	correct	1146289	0	1	2133	1	0	2000	other	0
+sub05	25	Picture	cross_start	1148555	0	1	10130	1	0	10000	other	0
+sub05	25	Picture	arrow_right	1158685	10130	1	2532	1	10000	2500	other	0
+sub05	25	Picture	cross_default	1161217	12662	1	3865	1	12500	3750	other	0
+sub05	25	Picture	cross_default	1165082	16528	1	8103	1	16250	2500	other	0
+sub05	25	Quit		1167298	18743	NA
+
+
+Event Type	Code	Type	Response	RT	RT Uncertainty	Time	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur
+
+Picture	instruct	other				10133	1	9064	1	0	next
+Picture	cross_start	other				19197	1	10130	1	0	10000
+Picture	arrow_right	other				29327	1	2533	1	10000	2500
+Picture	cross_default	other				31859	1	3865	1	12500	3750
+Picture	arrow_left	other				35725	1	2532	1	16250	2500
+Picture	cross_default	other				38257	1	2533	1	18750	2500
+Picture	arrow_stay	other				40790	1	2532	1	21250	2500
+Picture	cross_default	other				43322	1	2533	1	23750	2500
+Picture	arrow_stay	other				45855	1	2533	1	26250	2500
+Picture	cross_default	other				48387	1	3865	1	28750	3750
+Picture	arrow_switch	other				52252	1	2532	1	32500	2500
+Picture	cross_respond	other				54785	1	2532	1	35000	2500
+Picture	cross_wait	hit	1	4161	1	57317	1	4265	1	37500	next
+Picture	correct	other				61583	1	2133	1	0	2000
+Picture	cross_start	other				63849	1	10130	1	0	10000
+Picture	arrow_left	other				73978	1	2533	1	10000	2500
+Picture	cross_default	other				76511	1	3865	1	12500	3750
+Picture	arrow_right	other				80376	1	2533	1	16250	2500
+Picture	cross_default	other				82909	1	2533	1	18750	2500
+Picture	arrow_stay	other				85441	1	2532	1	21250	2500
+Picture	cross_default	other				87974	1	2533	1	23750	2500
+Picture	arrow_switch	other				90506	1	2533	1	26250	2500
+Picture	cross_default	other				93039	1	3865	1	28750	3750
+Picture	arrow_stay	other				96904	1	2533	1	32500	2500
+Picture	cross_respond	other				99437	1	2533	1	35000	2500
+Picture	cross_wait	miss				101969	1	4132	1	37500	next
+Picture	incorrect	other				106101	1	2133	1	0	2000
+Picture	cross_start	other				108367	1	10130	1	0	10000
+Picture	arrow_left	other				118497	1	2532	1	10000	2500
+Picture	cross_default	other				121029	1	3866	1	12500	3750
+Picture	cross_default	other				124895	1	2532	1	16250	2500
+Picture	cross_default	other				127427	1	2533	1	18750	2500
+Picture	cross_default	other				129960	1	2532	1	21250	2500
+Picture	cross_default	other				132492	1	2532	1	23750	2500
+Picture	cross_default	other				135025	1	2533	1	26250	2500
+Picture	cross_default	other				137557	1	3865	1	28750	3750
+Picture	arrow_stay	other				141423	1	2532	1	32500	2500
+Picture	cross_respond	other				143955	1	2532	1	35000	2500
+Picture	cross_wait	hit	1	11868	1	146488	1	11996	1	37500	next
+Picture	correct	other				158484	1	2133	1	0	2000
+Picture	cross_start	other				160750	1	10130	1	0	10000
+Picture	arrow_left	other				170880	1	2532	1	10000	2500
+Picture	cross_default	other				173412	1	3865	1	12500	3750
+Picture	arrow_stay	other				177277	1	2533	1	16250	2500
+Picture	cross_default	other				179810	1	2532	1	18750	2500
+Picture	arrow_switch	other				182342	1	2532	1	21250	2500
+Picture	cross_default	other				184875	1	2533	1	23750	2500
+Picture	arrow_stay	other				187407	1	2532	1	26250	2500
+Picture	cross_default	other				189940	1	3865	1	28750	3750
+Picture	arrow_stay	other				193805	1	2532	1	32500	2500
+Picture	cross_respond	other				196338	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	4525	1	198870	1	4665	1	37500	next
+Picture	correct	other				203535	1	2133	1	0	2000
+Picture	cross_start	other				205801	1	10130	1	0	10000
+Picture	arrow_right	other				215931	1	2532	1	10000	2500
+Picture	cross_default	other				218464	1	3866	1	12500	3750
+Picture	cross_default	other				222329	1	2532	1	16250	2500
+Picture	cross_default	other				224862	1	2532	1	18750	2500
+Picture	cross_default	other				227394	1	2533	1	21250	2500
+Picture	cross_default	other				229927	1	2533	1	23750	2500
+Picture	cross_default	other				232459	1	2533	1	26250	2500
+Picture	cross_default	other				234992	1	3865	1	28750	3750
+Picture	arrow_stay	other				238857	1	2533	1	32500	2500
+Picture	cross_respond	other				241390	1	2533	1	35000	2500
+Picture	cross_wait	miss				243922	1	15995	1	37500	next
+Picture	incorrect	other				259917	1	2133	1	0	2000
+Picture	cross_start	other				262183	1	10130	1	0	10000
+Picture	arrow_right	other				272313	1	2533	1	10000	2500
+Picture	cross_default	other				274845	1	3865	1	12500	3750
+Picture	arrow_stay	other				278710	1	2533	1	16250	2500
+Picture	cross_default	other				281243	1	2533	1	18750	2500
+Picture	arrow_switch	other				283776	1	2532	1	21250	2500
+Picture	cross_default	other				286308	1	2533	1	23750	2500
+Picture	arrow_switch	other				288840	1	2532	1	26250	2500
+Picture	cross_default	other				291373	1	3865	1	28750	3750
+Picture	arrow_stay	other				295238	1	2533	1	32500	2500
+Picture	cross_respond	other				297771	1	2532	1	35000	2500
+Picture	cross_wait	hit	2	4130	1	300303	1	4265	1	37500	next
+Picture	correct	other				304569	1	2133	1	0	2000
+Picture	cross_start	other				306834	1	10130	1	0	10000
+Picture	arrow_right	other				316964	1	2533	1	10000	2500
+Picture	cross_default	other				319497	1	3865	1	12500	3750
+Picture	arrow_switch	other				323362	1	2533	1	16250	2500
+Picture	cross_default	other				325895	1	2532	1	18750	2500
+Picture	arrow_left	other				328427	1	2532	1	21250	2500
+Picture	cross_default	other				330960	1	2532	1	23750	2500
+Picture	arrow_right	other				333492	1	2533	1	26250	2500
+Picture	cross_default	other				336025	1	3865	1	28750	3750
+Picture	arrow_switch	other				339890	1	2532	1	32500	2500
+Picture	cross_respond	other				342423	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	8758	1	344955	1	8797	1	37500	next
+Picture	correct	other				353752	1	2133	1	0	2000
+Picture	cross_start	other				356018	1	10130	1	0	10000
+Picture	arrow_right	other				366148	1	2532	1	10000	2500
+Picture	cross_default	other				368681	1	3865	1	12500	3750
+Picture	arrow_left	other				372546	1	2532	1	16250	2500
+Picture	cross_default	other				375078	1	2533	1	18750	2500
+Picture	arrow_switch	other				377611	1	2532	1	21250	2500
+Picture	cross_default	other				380143	1	2533	1	23750	2500
+Picture	arrow_left	other				382676	1	2532	1	26250	2500
+Picture	cross_default	other				385208	1	3866	1	28750	3750
+Picture	arrow_stay	other				389074	1	2532	1	32500	2500
+Picture	cross_respond	other				391606	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	6293	1	394139	1	6398	1	37500	next
+Picture	correct	other				400537	1	2133	1	0	2000
+Picture	cross_start	other				402803	1	10130	1	0	10000
+Picture	arrow_left	other				412932	1	2533	1	10000	2500
+Picture	cross_default	other				415465	1	3865	1	12500	3750
+Picture	cross_default	other				419330	1	2532	1	16250	2500
+Picture	cross_default	other				421863	1	2533	1	18750	2500
+Picture	cross_default	other				424395	1	2532	1	21250	2500
+Picture	cross_default	other				426928	1	2533	1	23750	2500
+Picture	cross_default	other				429460	1	2532	1	26250	2500
+Picture	cross_default	other				431993	1	3865	1	28750	3750
+Picture	arrow_switch	other				435858	1	2532	1	32500	2500
+Picture	cross_respond	other				438391	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	7668	1	440923	1	7731	1	37500	next
+Picture	correct	other				448654	1	2133	1	0	2000
+Picture	cross_start	other				450920	1	10130	1	0	10000
+Picture	arrow_right	other				461050	1	2532	1	10000	2500
+Picture	cross_default	other				463582	1	3865	1	12500	3750
+Picture	arrow_stay	other				467448	1	2533	1	16250	2500
+Picture	cross_default	other				469980	1	2532	1	18750	2500
+Picture	arrow_stay	other				472513	1	2533	1	21250	2500
+Picture	cross_default	other				475045	1	2533	1	23750	2500
+Picture	arrow_switch	other				477578	1	2532	1	26250	2500
+Picture	cross_default	other				480110	1	3865	1	28750	3750
+Picture	arrow_switch	other				483976	1	2533	1	32500	2500
+Picture	cross_respond	other				486508	1	2533	1	35000	2500
+Picture	cross_wait	miss				489041	1	9997	1	37500	next
+Picture	incorrect	other				499037	1	2133	1	0	2000
+Picture	cross_start	other				501303	1	10130	1	0	10000
+Picture	arrow_left	other				511433	1	2532	1	10000	2500
+Picture	cross_default	other				513966	1	3865	1	12500	3750
+Picture	cross_default	other				517831	1	2532	1	16250	2500
+Picture	cross_default	other				520363	1	2533	1	18750	2500
+Picture	cross_default	other				522896	1	2532	1	21250	2500
+Picture	cross_default	other				525429	1	2532	1	23750	2500
+Picture	cross_default	other				527961	1	2533	1	26250	2500
+Picture	cross_default	other				530493	1	3865	1	28750	3750
+Picture	arrow_switch	other				534359	1	2533	1	32500	2500
+Picture	cross_respond	other				536891	1	2532	1	35000	2500
+Picture	cross_wait	hit	2	10365	1	539424	1	10397	1	37500	next
+Picture	correct	other				549820	1	2133	1	0	2000
+Picture	cross_start	other				552086	1	10130	1	0	10000
+Picture	arrow_right	other				562216	1	2532	1	10000	2500
+Picture	cross_default	other				564749	1	3865	1	12500	3750
+Picture	cross_default	other				568614	1	2533	1	16250	2500
+Picture	cross_default	other				571147	1	2532	1	18750	2500
+Picture	cross_default	other				573679	1	2532	1	21250	2500
+Picture	cross_default	other				576212	1	2533	1	23750	2500
+Picture	cross_default	other				578744	1	2533	1	26250	2500
+Picture	cross_default	other				581277	1	3865	1	28750	3750
+Picture	arrow_switch	other				585142	1	2532	1	32500	2500
+Picture	cross_respond	other				587674	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	9821	1	590207	1	9863	1	37500	next
+Picture	correct	other				600070	1	2133	1	0	2000
+Picture	cross_start	other				602336	1	10130	1	0	10000
+Picture	arrow_left	other				612466	1	2532	1	10000	2500
+Picture	cross_default	other				614999	1	3865	1	12500	3750
+Picture	arrow_left	other				618864	1	2533	1	16250	2500
+Picture	cross_default	other				621397	1	2532	1	18750	2500
+Picture	arrow_stay	other				623929	1	2532	1	21250	2500
+Picture	cross_default	other				626462	1	2533	1	23750	2500
+Picture	arrow_left	other				628994	1	2533	1	26250	2500
+Picture	cross_default	other				631527	1	3865	1	28750	3750
+Picture	arrow_stay	other				635392	1	2533	1	32500	2500
+Picture	cross_respond	other				637924	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	15330	1	640457	1	15461	1	37500	next
+Picture	correct	other				655918	1	2133	1	0	2000
+Picture	cross_start	other				658184	1	10130	1	0	10000
+Picture	arrow_right	other				668314	1	2532	1	10000	2500
+Picture	cross_default	other				670847	1	3865	1	12500	3750
+Picture	cross_default	other				674712	1	2533	1	16250	2500
+Picture	cross_default	other				677245	1	2532	1	18750	2500
+Picture	cross_default	other				679777	1	2533	1	21250	2500
+Picture	cross_default	other				682310	1	2532	1	23750	2500
+Picture	cross_default	other				684842	1	2533	1	26250	2500
+Picture	cross_default	other				687375	1	3865	1	28750	3750
+Picture	arrow_stay	other				691240	1	2533	1	32500	2500
+Picture	cross_respond	other				693773	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	9241	1	696305	1	9330	1	37500	next
+Picture	correct	other				705635	1	2133	1	0	2000
+Picture	cross_start	other				707901	1	10130	1	0	10000
+Picture	arrow_right	other				718031	1	2533	1	10000	2500
+Picture	cross_default	other				720564	1	3865	1	12500	3750
+Picture	arrow_right	other				724429	1	2532	1	16250	2500
+Picture	cross_default	other				726961	1	2533	1	18750	2500
+Picture	arrow_switch	other				729494	1	2533	1	21250	2500
+Picture	cross_default	other				732027	1	2532	1	23750	2500
+Picture	arrow_right	other				734559	1	2533	1	26250	2500
+Picture	cross_default	other				737091	1	3865	1	28750	3750
+Picture	arrow_stay	other				740957	1	2533	1	32500	2500
+Picture	cross_respond	other				743489	1	2532	1	35000	2500
+Picture	cross_wait	hit	2	8964	1	746022	1	9064	1	37500	next
+Picture	correct	other				755086	1	2133	1	0	2000
+Picture	cross_start	other				757351	1	10130	1	0	10000
+Picture	arrow_right	other				767481	1	2533	1	10000	2500
+Picture	cross_default	other				770014	1	3865	1	12500	3750
+Picture	arrow_right	other				773879	1	2533	1	16250	2500
+Picture	cross_default	other				776412	1	2532	1	18750	2500
+Picture	arrow_stay	other				778944	1	2532	1	21250	2500
+Picture	cross_default	other				781477	1	2533	1	23750	2500
+Picture	arrow_left	other				784009	1	2532	1	26250	2500
+Picture	cross_default	other				786542	1	3865	1	28750	3750
+Picture	arrow_switch	other				790407	1	2532	1	32500	2500
+Picture	cross_respond	other				792940	1	2532	1	35000	2500
+Picture	cross_wait	hit	1	11113	1	795472	1	11196	1	37500	next
+Picture	correct	other				806668	1	2133	1	0	2000
+Picture	cross_start	other				808934	1	10130	1	0	10000
+Picture	arrow_left	other				819064	1	2533	1	10000	2500
+Picture	cross_default	other				821597	1	3865	1	12500	3750
+Picture	arrow_switch	other				825462	1	2533	1	16250	2500
+Picture	cross_default	other				827995	1	2532	1	18750	2500
+Picture	arrow_switch	other				830527	1	2532	1	21250	2500
+Picture	cross_default	other				833060	1	2532	1	23750	2500
+Picture	arrow_left	other				835592	1	2532	1	26250	2500
+Picture	cross_default	other				838124	1	3865	1	28750	3750
+Picture	arrow_switch	other				841990	1	2532	1	32500	2500
+Picture	cross_respond	other				844522	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	6169	1	847055	1	6265	1	37500	next
+Picture	correct	other				853320	1	2133	1	0	2000
+Picture	cross_start	other				855585	1	10130	1	0	10000
+Picture	arrow_left	other				865715	1	2532	1	10000	2500
+Picture	cross_default	other				868248	1	3866	1	12500	3750
+Picture	cross_default	other				872113	1	2532	1	16250	2500
+Picture	cross_default	other				874646	1	2533	1	18750	2500
+Picture	cross_default	other				877178	1	2533	1	21250	2500
+Picture	cross_default	other				879711	1	2533	1	23750	2500
+Picture	cross_default	other				882243	1	2532	1	26250	2500
+Picture	cross_default	other				884776	1	3865	1	28750	3750
+Picture	arrow_stay	other				888641	1	2532	1	32500	2500
+Picture	cross_respond	other				891174	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	11916	1	893706	1	11996	1	37500	next
+Picture	correct	other				905702	1	2133	1	0	2000
+Picture	cross_start	other				907968	1	10130	1	0	10000
+Picture	arrow_right	other				918098	1	2532	1	10000	2500
+Picture	cross_default	other				920630	1	3865	1	12500	3750
+Picture	cross_default	other				924496	1	2533	1	16250	2500
+Picture	cross_default	other				927028	1	2533	1	18750	2500
+Picture	cross_default	other				929561	1	2532	1	21250	2500
+Picture	cross_default	other				932093	1	2533	1	23750	2500
+Picture	cross_default	other				934626	1	2533	1	26250	2500
+Picture	cross_default	other				937158	1	3865	1	28750	3750
+Picture	arrow_switch	other				941024	1	2533	1	32500	2500
+Picture	cross_respond	other				943556	1	2532	1	35000	2500
+Picture	cross_wait	hit	1	11373	1	946089	1	11463	1	37500	next
+Picture	correct	other				957551	1	2133	1	0	2000
+Picture	cross_start	other				959817	1	10130	1	0	10000
+Picture	arrow_right	other				969947	1	2533	1	10000	2500
+Picture	cross_default	other				972480	1	3865	1	12500	3750
+Picture	cross_default	other				976345	1	2532	1	16250	2500
+Picture	cross_default	other				978878	1	2533	1	18750	2500
+Picture	cross_default	other				981410	1	2532	1	21250	2500
+Picture	cross_default	other				983943	1	2532	1	23750	2500
+Picture	cross_default	other				986475	1	2533	1	26250	2500
+Picture	cross_default	other				989008	1	3865	1	28750	3750
+Picture	arrow_switch	other				992873	1	2533	1	32500	2500
+Picture	cross_respond	other				995406	1	2533	1	35000	2500
+Picture	cross_wait	hit	1	9363	1	997938	1	9464	1	37500	next
+Picture	correct	other				1007402	1	2133	1	0	2000
+Picture	cross_start	other				1009668	1	10130	1	0	10000
+Picture	arrow_right	other				1019798	1	2532	1	10000	2500
+Picture	cross_default	other				1022330	1	3865	1	12500	3750
+Picture	arrow_stay	other				1026195	1	2532	1	16250	2500
+Picture	cross_default	other				1028728	1	2533	1	18750	2500
+Picture	arrow_switch	other				1031260	1	2532	1	21250	2500
+Picture	cross_default	other				1033793	1	2533	1	23750	2500
+Picture	arrow_stay	other				1036325	1	2533	1	26250	2500
+Picture	cross_default	other				1038858	1	3865	1	28750	3750
+Picture	arrow_stay	other				1042723	1	2533	1	32500	2500
+Picture	cross_respond	other				1045256	1	2532	1	35000	2500
+Picture	cross_wait	hit	2	6392	1	1047788	1	6531	1	37500	next
+Picture	correct	other				1054319	1	2133	1	0	2000
+Picture	cross_start	other				1056585	1	10130	1	0	10000
+Picture	arrow_right	other				1066715	1	2533	1	10000	2500
+Picture	cross_default	other				1069248	1	3865	1	12500	3750
+Picture	cross_default	other				1073113	1	2533	1	16250	2500
+Picture	cross_default	other				1075646	1	2533	1	18750	2500
+Picture	cross_default	other				1078178	1	2532	1	21250	2500
+Picture	cross_default	other				1080711	1	2533	1	23750	2500
+Picture	cross_default	other				1083243	1	2532	1	26250	2500
+Picture	cross_default	other				1085776	1	3865	1	28750	3750
+Picture	arrow_stay	other				1089641	1	2533	1	32500	2500
+Picture	cross_respond	other				1092173	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	5713	1	1094706	1	5731	1	37500	next
+Picture	correct	other				1100437	1	2133	1	0	2000
+Picture	cross_start	other				1102703	1	10130	1	0	10000
+Picture	arrow_left	other				1112833	1	2532	1	10000	2500
+Picture	cross_default	other				1115366	1	3865	1	12500	3750
+Picture	cross_default	other				1119231	1	2533	1	16250	2500
+Picture	cross_default	other				1121764	1	2532	1	18750	2500
+Picture	cross_default	other				1124296	1	2533	1	21250	2500
+Picture	cross_default	other				1126829	1	2532	1	23750	2500
+Picture	cross_default	other				1129361	1	2532	1	26250	2500
+Picture	cross_default	other				1131894	1	3865	1	28750	3750
+Picture	arrow_switch	other				1135759	1	2533	1	32500	2500
+Picture	cross_respond	other				1138291	1	2533	1	35000	2500
+Picture	cross_wait	hit	2	5435	1	1140824	1	5465	1	37500	next
+Picture	correct	other				1146289	1	2133	1	0	2000
+Picture	cross_start	other				1148555	1	10130	1	0	10000
+Picture	arrow_right	other				1158685	1	2532	1	10000	2500
+Picture	cross_default	other				1161217	1	3865	1	12500	3750
+Picture	cross_default	other				1165082	1	8103	1	16250	2500

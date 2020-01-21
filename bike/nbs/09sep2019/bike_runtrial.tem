@@ -1,0 +1,127 @@
+######################
+### trial template ###
+######################
+
+$isi = '1000'; # + int($random_value * 800)'; # isi with length 1
+
+### the actual experimental trial 
+trial {
+
+	trial_duration 		= forever; # '5000 + $isi'; #
+	trial_type 				= first_response;
+	all_responses 			= false;
+	
+	correct_feedback 		= correct;
+	incorrect_feedback 	= incorrect;
+	no_response_feedback = noresp;
+
+	# ITI FIX
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 0;
+	duration 	= 1000;
+	code 			= "cross_start";
+	
+	# first cue []
+	picture {
+		bitmap $cue_1;
+		x = 0; y = 0;
+		};
+	time 			= 1000;
+	duration 	= 250;
+	code 			= $cue_1_code;
+	
+	# empty fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 1250;
+	duration 	= 375;
+	code 			= "cross_default";
+	
+	# first dis []
+	picture {
+		bitmap $dis_1;
+		x = 0; y = 0;
+		};
+	time 			= 1625;
+	duration 	= 250;
+	code 			= "dis_1";
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 1875;
+	duration 	= 250;
+	code 			= "cross_default";
+	
+	# second dis []
+	picture {
+		bitmap $dis_2;
+		x = 0; y = 0;
+		};
+	time 			= 2125;
+	duration 	= 250;
+	code 			= "dis_2";
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 2375;
+	duration 	= 250;
+	code 			= "cross_default";
+	
+	# third dis []
+	picture {
+		bitmap $dis_2;
+		x = 0; y = 0;
+		};
+	time 			= 2625;
+	duration 	= 250;
+	code 			= "dis_3";
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 2875;
+	duration 	= 375;
+	code 			= "cross_default";
+	
+	# second cue []
+	picture {
+		bitmap $cue_2;
+		x = 0; y = 0;
+		};
+	time 			= 3250;
+	duration 	= 250;
+	code 			= $cue_2_code;
+	
+	# respond []
+	picture {
+		bitmap cross_respond;
+		x = 0; y = 0;
+		};
+	time 			= 3500;
+	duration 	= 250;
+	code 			= "cross_respond";
+	
+	# wait_cross []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 3750;
+	code 			= "cross_wait";
+	
+	target_button = $resp;
+	
+};
