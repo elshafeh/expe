@@ -10,12 +10,12 @@ if IsLinux
     
     scr.b.clearResponses;
     
-    [b_button,response_time]            = scr.b.getResponse(120*120,1); % wait for an hour :)
-    list_bitsi                          = [97 100 98 99 1:96];
-    repButton                           = find(list_bitsi == b_button);
+    [b_button,response_time]	= scr.b.getResponse(120*120,1); % wait for an hour :)
+    list_bitsi                  = [97 100 98 99 1:96];
+    repButton                   = find(list_bitsi == b_button);
     
     if repButton > 2
-        repButton                       = -1;
+        repButton         	= -1;
     end
     
     scr.b.clearResponses;
@@ -23,15 +23,15 @@ if IsLinux
 else
     
     [response_time, keyCode, ~]         = KbWait(-1);
-    repButton                           = find(keyCode(ctl.keyValid) == 1);
+    repButton             	= find(keyCode(ctl.keyValid) == 1);
     
     if isempty(repButton)
-        repButton                       = -1;
+        repButton         	= -1;
     end
     
 end
 
-repRT                                  = response_time-t_report;
+repRT                      	= response_time-t_report;
 
 if repButton < 0
     repCorrect              = 0;
