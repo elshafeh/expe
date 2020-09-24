@@ -37,11 +37,11 @@ end
 % crash and build up on
 
 if exist(Info.logfilename)
-    tmp                         = load(Info.logfilename);
-    Info.TrialInfo            	= tmp.Info.TrialInfo; clear tmp;
+    tmp                	= load(Info.logfilename);
+    Info.TrialInfo     	= tmp.Info.TrialInfo; clear tmp;
 else
-    Info.TrialInfo              = taco_CreateAllTrials;
+    Info.TrialInfo     	= taco_CreateAllTrials;
 end
 
-Info.resp_map{1}                = [1 1;2 0];
-Info.resp_map{2}                = [1 0;2 1];
+Info.resp_map{1}       	= [1 1;2 0];
+Info.resp_map{2}       	= [1 0;2 1];

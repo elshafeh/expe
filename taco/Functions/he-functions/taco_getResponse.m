@@ -12,7 +12,7 @@ switch ctl.maptype
     case 1
         DrawFormattedText(wPtr,'Do They Match? \n\n\nY                     N\n\n', 'center', 'center', scr.black);
     case 2
-        DrawFormattedText(wPtr,'Do They Match? \n\n\nY                     N\n\n', 'center', 'center', scr.black);
+        DrawFormattedText(wPtr,'Do They Match? \n\n\nN                     Y\n\n', 'center', 'center', scr.black);
 end
 
 Screen('Flip', wPtr,ctl.t_offset+ctl.t_wait - scr.ifi/2);

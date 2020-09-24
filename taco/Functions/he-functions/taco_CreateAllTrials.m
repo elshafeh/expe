@@ -54,7 +54,8 @@ bloc_structure      = [];
 % define jitter
 % subsample for training blocks
 if strcmp(Info.runtype,'block')
-    possibJitter   	= [1 2 3 1 2 3]; % fixed (early) fixed (late) and jittered , twelve blocks
+    % !! This is not balanced !!
+    possibJitter   	= [1 3]; % [1 2 3 1 2 3]; % fixed (early) fixed (late) and jittered
     possibRepeat    = 1;
 elseif strcmp(Info.runtype,'train')
     possibJitter   	= 1; % fixed (early) ; 1 block
@@ -95,9 +96,9 @@ for njitter = 1:length(possibJitter)
                 
                 
                 if strcmp(Info.runtype,'loca')
-                    trial_structure(trial_idx).ismatch            = possibMatch(length(unique([samp1_type probe_type])));
+                    trial_structure(trial_idx).ismatch         	= possibMatch(length(unique([samp1_type probe_type])));
                 else
-                    trial_structure(trial_idx).attend            = nfocus;
+                    trial_structure(trial_idx).attend         	= nfocus;
                     if nfocus == 1
                         trial_structure(trial_idx).ismatch    	= possibMatch(length(unique([samp1_type probe_type])));
                     else

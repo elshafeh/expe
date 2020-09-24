@@ -1,32 +1,35 @@
 %% Set Environment
 
+tic;
+
 sca;
-clear ;
+clear;
 
 addpath(genpath('Functions/'));
 
 global wPtr scr stim ctl Info el useEyetrack
 
-Info.name                     	= 'test01'; % input('Subject name                 	: ','s'); % example sub001
-Info.runtype                  	= 'train'; % input('Session (train, block)          : ','s'); % training , main experiment or localizer
-Info.difficulty              	= 1; %input('[1-4] [easy-difficult]          : '); % Target contrast
+Info.name                 	= input('Subject name                 	: ','s'); % example sub001
+Info.runtype               	= input('Session (train, block)          : ','s'); % training , main experiment or localizer
+Info.difficulty            	= input('[1-4] [easy-difficult]          : '); % Target contrast
+Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
-Info.debug                   	= 'yes' ; % if yes: you open smaller window (for debugging)
-Info.MotorResponse            	= 'no'; % if no: you disable bitsi responses (for debugging)
+Info.debug                 	= 'yes' ; % if yes: you open smaller window (for debugging)
+Info.MotorResponse        	= 'no'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
     case 'block'
-        Info.track            	= 'n'; %input('Launch eye-tracking  [y/n]     : ','s'); % launch eye_tracking
+        Info.track         	= 'n'; %input('Launch eye-tracking  [y/n]     : ','s'); % launch eye_tracking
         if strcmp(Info.track,'y')
             Info.tracknumber  	= input('tracking session number       	: ','s'); % keep tracking of how many training sessions
-            Info.eyefile      	= [Info.name(4:end) '00' Info.tracknumber];
+            Info.eyefile   	= [Info.name(4:end) '00' Info.tracknumber];
         end
-        Info.blocklength       	= 64;
+        Info.blocklength   	= 64;
         
     case 'train'
-        Info.runnumber       	= '1'; % input('training session number      	: ','s'); % keep tracking of how many training sessions
-        Info.track           	= 'n';
-        Info.blocklength     	= 16;
+        Info.runnumber     	= num2str(length(dir(['Logfiles' filesep Info.name filesep '*train*']))+1);
+        Info.track        	= 'n';
+        Info.blocklength   	= 16;
 end
 
 taco_setParameters;
@@ -70,7 +73,7 @@ for ntrial = strt:height(Info.TrialInfo)
     ix                                  = ntrial;
     nw_b_flg                            = h_chk_if_new_block(Info,ix);
     
-    fprintf('\nTrial no %3d \n\n',ix);
+    fprintf('Trial no %3d \n',ix);
     
     if nw_b_flg == 1
         %         if ~strcmp(Info.runtype,'train')
@@ -85,8 +88,8 @@ for ntrial = strt:height(Info.TrialInfo)
     
     %% fixed parameters
     CueInfo.dur                     	= stim.dur.cue;
-    CueInfo.type                        = 2; %Info.TrialInfo(ix,:).cue;
-    CueInfo.attend                      = 2; %Info.TrialInfo(ix,:).attend;
+    CueInfo.type                        = Info.TrialInfo(ix,:).cue;
+    CueInfo.attend                      = Info.TrialInfo(ix,:).attend;
     
     % choose which mapping will be shown
     ctl.maptype                         = Info.TrialInfo(ix,:).mapping;
@@ -146,7 +149,7 @@ for ntrial = strt:height(Info.TrialInfo)
     else
         repRT                         	= 50;
         repButton                      	= 51;
-        repCorrect                    	= 52;
+        repCorrect                    	= [1 0]; repCorrect = repCorrect(randi(2));
     end
     
     Info.TrialInfo.repRT{ix}          	= repRT;
@@ -156,25 +159,45 @@ for ntrial = strt:height(Info.TrialInfo)
     
     clear repRT repButton repCorrect
     
-    %% End Trial (and) block
+    %% End Trial
     tfin                             	= taco_endTrial;
     
     if IsLinux
         scr.b.clearResponses;
     end
     
+    %% End block
     % this will end block and save the block information ;
     % after each block it will do that in the background just in case an
     % error occurs.
     
-    if strcmp(Info.runtype,'train') && ntrial == height(Info.TrialInfo)
-        taco_BlockEnd(1:Info.blocklength);
-        save(Info.logfilename,'Info','-v7.3');
-    else
-        if Info.TrialInfo(ix,:).nbloc ~= Info.TrialInfo(ix+1,:).nbloc
-            taco_BlockEnd(ntrial - Info.blocklength-1 : ntrial);
+    if strcmp(Info.runtype,'train') 
+        if ntrial == Info.blocklength
+            taco_BlockEnd(1:Info.blocklength);toc;
             save(Info.logfilename,'Info','-v7.3');
         end
+    else
+        
+        trl_half_break      = [32:64:384];
+        trl_full_break      = [64:64:384];
+        
+        fnd_half_break    	= find(trl_half_break == ntrial);
+        fnd_full_break    	= find(trl_full_break == ntrial);
+
+        if ~isempty(fnd_half_break)
+            i1  = ntrial - (Info.blocklength/2 -1);
+            i2  = ntrial;
+            taco_BlockEnd([i1 i2]);toc;
+            save(Info.logfilename,'Info','-v7.3');
+        end
+        
+        if ~isempty(fnd_full_break)
+            i1  = ntrial - (Info.blocklength-1);
+            i2  = ntrial;
+            taco_BlockEnd([i1 i2]);toc;
+            save(Info.logfilename,'Info','-v7.3');
+        end
+        
     end
     
     if IsLinux
@@ -198,3 +221,5 @@ save(Info.logfilename,'Info','-v7.3');
 
 % to give idea on behavioral peformances
 taco_analyzebehav(Info.TrialInfo);
+
+toc;

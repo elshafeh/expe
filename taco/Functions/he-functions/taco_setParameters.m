@@ -7,7 +7,7 @@ sizeDisplay                 = [52.7, 29.6]; % LED screens used in the Donders
 if strcmp(Info.debug,'no')
     rectDisplay             = [];
 else
-    rectDisplay             = [20 20 500 500];
+    rectDisplay             = [50 50 200 200]; % small %  [100 100 1300 700]; % big %
 end
 
 viewDistance                = 57; % in centimeters
@@ -73,7 +73,7 @@ stim.dur.cue                = round(0.3 ./ scr.ifi) * scr.ifi;
 % 1frame    6frame    7frame 8frame 9frame
 % [0.0167    0.1000    0.1167 0.1333]
 frame_length            	= 1/60;
-dur_in_frames               = (frame_length .* 4);
+dur_in_frames               = (frame_length .* Info.gratingframes);
 stim.dur.target            	= round(dur_in_frames ./ scr.ifi) * scr.ifi;
 
 
@@ -105,7 +105,6 @@ stim.mask(:,:,2)            = tmpmask;
 % === Control
 KbName('UnifyKeyNames');
 ctl.DeviceNum               = -1;
-ctl.keyQuit                 = KbName('Q');
-ctl.key1                    = KbName('D');
-ctl.key2                    = KbName('K'); % KbName(';:'); % CHECK !!!!!!!!!!
+ctl.key1                    = KbName('d');
+ctl.key2                    = KbName('k'); % KbName(';:'); % CHECK !!!!!!!!!!
 ctl.keyValid                = [ctl.key1, ctl.key2]; %, ctl.keyQuit];

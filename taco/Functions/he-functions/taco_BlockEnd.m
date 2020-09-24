@@ -25,7 +25,7 @@ end
 
 endtext2                                    = '\n\n\nPlease Take Some Rest :) \n\n\n ';
 
-bpilot_darkenBackground;
+taco_darkenBackground;
 DrawFormattedText(wPtr, [endtext1 endtext2], 'center', 'center', scr.black);
 Screen('Flip', wPtr);
 
@@ -33,7 +33,7 @@ if strcmp(Info.MotorResponse,'yes')
     KbWait(-1);
 end
 
-bpilot_darkenBackground;
-bpilot_drawFixation;
+taco_darkenBackground;
+taco_drawFixation;
 Screen('Flip', wPtr);
 WaitSecs(stim.dur.InstructionPause);
