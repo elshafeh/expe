@@ -1,4 +1,4 @@
-% = % Set Environment
+%% Set Environment
 
 sca;
 clear ;
@@ -47,10 +47,8 @@ if strcmp(Info.track,'y')
     useEyetrack        	= 1;
 end
 
-% = % Load In / Create Targets beforehand to save time
+%% Load In / Create Targets beforehand to save time
 [AllStim,AllMask]      	= taco_CreateAllTargets;
-
-% = % Loop Through Trials
 
 if strcmp(Info.debug,'no')
     HideCursor;
@@ -59,6 +57,8 @@ end
 if IsLinux
     scr.b.clearResponses;
 end
+
+%% Loop Through Trials
 
 % just in case during one of the blocks , an error happened and the
 % experiment needed to be restarded : this script will make sure to restart
@@ -156,7 +156,7 @@ for ntrial = strt:height(Info.TrialInfo)
     
     clear repRT repButton repCorrect
     
-    % = % End Trial
+    %% End Trial (and) block
     tfin                             	= taco_endTrial;
     
     if IsLinux

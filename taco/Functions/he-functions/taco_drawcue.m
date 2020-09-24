@@ -56,8 +56,14 @@ switch CueInfo.type
                         Screen('DrawLines', wPtr, allCoords,lineWidthPix, scr.black, [scr.xCtr cy1], 2);
                         
                     case 2 % attend second grating
+                        %                         Screen('DrawLines', wPtr, allCoords,DashWidthPix, scr.black, [scr.xCtr cy1], 2);
+                        %                         Screen('DrawLines', wPtr, allCoords,lineWidthPix, scr.black, [scr.xCtr cy2], 2);
+                        
+                        Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);
                         Screen('DrawLines', wPtr, allCoords,DashWidthPix, scr.black, [scr.xCtr cy1], 2);
+                        Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);
                         Screen('DrawLines', wPtr, allCoords,lineWidthPix, scr.black, [scr.xCtr cy2], 2);
+                        
                 end
             case 1 % 1st cue (uninformative)
                 Screen('LineStipple', wPtr, 1, 1, [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]);
