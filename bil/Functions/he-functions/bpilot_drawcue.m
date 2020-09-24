@@ -61,7 +61,7 @@ switch CueInfo.CueOrder
         
         switch CueInfo.CueType
             case 2
-                % pre cue
+                % retro cue
                 switch CueInfo.TaskType
                     case 1
                         % attend orientation
