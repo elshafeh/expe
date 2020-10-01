@@ -2,6 +2,10 @@ function taco_BlockEnd(ix)
 
 global wPtr scr stim Info
 
+if IsLinux
+    scr.b.clearResponses;
+end
+
 i1                                          = ix(1);
 i2                                          = ix(end);
 bloc_perf                                   = cell2mat(Info.TrialInfo.repCorrect(i1:i2));
@@ -23,14 +27,18 @@ if IsLinux
     scr.b.sendTrigger(251); % end trigger
 end
 
-endtext2                                    = '\n\n\nPlease Take Some Rest :) \n\n\n ';
+endtext2                                    = '\n\n\nPlease Take Some Rest :) \n\n\n And press any button to continue';
 
 taco_darkenBackground;
 DrawFormattedText(wPtr, [endtext1 endtext2], 'center', 'center', scr.black);
 Screen('Flip', wPtr);
 
 if strcmp(Info.MotorResponse,'yes')
-    KbWait(-1);
+    if IsLinux
+        taco_response_wait;
+    else
+        KbWait(-1);
+    end
 end
 
 taco_darkenBackground;

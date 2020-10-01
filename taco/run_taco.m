@@ -15,7 +15,7 @@ Info.difficulty            	= input('[1-4] [easy-difficult]          : '); % Tar
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
 Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
-Info.MotorResponse        	= 'no'; % if no: you disable bitsi responses (for debugging)
+Info.MotorResponse        	= 'yes'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
     case 'block'

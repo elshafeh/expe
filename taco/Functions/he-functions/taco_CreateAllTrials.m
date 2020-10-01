@@ -150,7 +150,6 @@ for njitter = 1:length(possibJitter)
     
     % matrix of isi 
     
-    
     if strcmp(Info.runtype,'block')
         switch njitter
             case 1
@@ -191,6 +190,7 @@ for njitter = 1:length(possibJitter)
         for nt = 1:length(trial_structure)
             trial_structure(nt).crit_soa    	= min_soa;
             trial_structure(nt).ITI             = possibITI(nt);
+            trial_structure(nt).ISI             = [min_soa min_soa min_soa];
         end
     end
 
