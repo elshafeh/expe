@@ -42,11 +42,12 @@ switch Info.difficulty
         StimCyc  	= [0.4;0.5];
 end
 
+jitternames     	= {'fixed-fixed' 'fixed-jittered' 'jitterd'};
 possibMatch         = [1 0]; % {'yes','no'};
 bloc_structure      = [];
 
 % we need to loop through
-% [1] fixed (early) fixed (late) and jittered
+% [1] fixed-fixed [2] fixed-jittered [3] jitterd
 % [2] cues: pre and retro
 % [3] mapping: A and B
 % [4] match: first or second
@@ -54,8 +55,8 @@ bloc_structure      = [];
 % define jitter
 % subsample for training blocks
 if strcmp(Info.runtype,'block')
-    % !! This is not balanced !!
-    possibJitter   	= [1 3]; % [1 2 3 1 2 3]; % fixed (early) fixed (late) and jittered
+    possibJitter   	= [1 2 3]; % 
+    possibJitter   	= possibJitter(randperm(length(possibJitter))); % 
     possibRepeat    = 1;
 elseif strcmp(Info.runtype,'train')
     possibJitter   	= 1; % fixed (early) ; 1 block
@@ -130,6 +131,8 @@ for njitter = 1:length(possibJitter)
                 trial_structure(trial_idx).probeClass         	= probe_type;
                 % -- 
                 
+                trial_structure(trial_idx).bloctype             = jitternames{njitter};
+                
                 trial_structure(trial_idx).trigtime             = [];
                 
             end
@@ -145,29 +148,46 @@ for njitter = 1:length(possibJitter)
     max_soa                                     = 3.5;
     possibITI                                   = linspace(2,2.5,length(trial_structure));
     
+    % matrix of isi 
+    
+    
     if strcmp(Info.runtype,'block')
         switch njitter
-            case 1 % fixed early
+            case 1
+                % fixed-fixed
+                possibISI                           = repmat(1.5,length(trial_structure),3); % cue-1st 1st-2nd 2nd-cue
+                
+                for nt = 1:length(trial_structure)
+                    trial_structure(nt).crit_soa    = min_soa; % cue-probe
+                    trial_structure(nt).ITI         = possibITI(nt);
+                    trial_structure(nt).ISI     	= possibISI(nt,:);
+
+                end
+                
+        case 2 
+            % fixed-jittered
+            possibISI                   = [linspace(1.4,1.6,length(trial_structure))]';
+            possibISI                   = [possibISI(randperm(length(possibISI))) possibISI(randperm(length(possibISI))) possibISI(randperm(length(possibISI)))]; % cue-1st 1st-2nd 2nd-cue
             for nt = 1:length(trial_structure)
                 trial_structure(nt).crit_soa    = min_soa;
                 trial_structure(nt).ITI         = possibITI(nt);
+                trial_structure(nt).ISI     	= possibISI(nt,:);
             end
-        case 2 % fixed late
-            for nt = 1:length(trial_structure)
-                trial_structure(nt).crit_soa    = max_soa;
-                trial_structure(nt).ITI         = possibITI(nt);
-            end
-        case 3 % jittered
             
+        case 3 
+            % jittered
             possibSOA       = linspace(1.5,3.5,length(trial_structure));
+            possibISI    	= repmat(1.5,length(trial_structure),3); % cue-1st 1st-2nd 2nd-cue
             
             for nt = 1:length(trial_structure)
                 trial_structure(nt).crit_soa    = possibSOA(nt);
                 trial_structure(nt).ITI         = possibITI(nt);
+                trial_structure(nt).ISI     	= possibISI(nt,:);
             end
-            
+                        
         end
     else
+        % for practice trials
         for nt = 1:length(trial_structure)
             trial_structure(nt).crit_soa    	= min_soa;
             trial_structure(nt).ITI             = possibITI(nt);

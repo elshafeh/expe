@@ -1,4 +1,4 @@
-function [repRT,repButton,repCorrect] = taco_getResponse
+function [repRT,repButton,repCorrect,t_disp] = taco_getResponse
 
 % this first present the response mapping then
 % captures responses from keyboard or
@@ -15,8 +15,7 @@ switch ctl.maptype
         DrawFormattedText(wPtr,'Do They Match? \n\n\nN                     Y\n\n', 'center', 'center', scr.black);
 end
 
-Screen('Flip', wPtr,ctl.t_offset+ctl.t_wait - scr.ifi/2);
-
+t_disp                      = Screen('Flip', wPtr,ctl.t_offset+ctl.t_wait - scr.ifi/2);
 t_report                 	= GetSecs;
 
 if IsLinux
@@ -24,8 +23,8 @@ if IsLinux
     scr.b.clearResponses;
     
     [b_button,response_time]	= scr.b.getResponse(120*120,1); % wait for an hour :)
-    list_bitsi           	= [97 100 98 99 1:96];
-    repButton            	= find(list_bitsi == b_button);
+    list_bitsi                  = [97 100 98 99 1:96];
+    repButton                   = find(list_bitsi == b_button);
     
     if repButton > 2
         repButton         	= -1;

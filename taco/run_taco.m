@@ -14,7 +14,7 @@ Info.runtype               	= input('Session (train, block)          : ','s'); %
 Info.difficulty            	= input('[1-4] [easy-difficult]          : '); % Target contrast
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
-Info.debug                 	= 'yes' ; % if yes: you open smaller window (for debugging)
+Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
 Info.MotorResponse        	= 'no'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
@@ -106,6 +106,7 @@ for ntrial = strt:height(Info.TrialInfo)
     [tcue1,tcue2,tcue3]                	= taco_drawcue(CueInfo);
     
     %% Draw first sample
+    stim.dur.ISI                        = Info.TrialInfo(ix,:).ISI(1); % 1st delay
     stim.order                        	= 1;
     stim.code                          	= 10 + Info.TrialInfo(ix,:).samp1Class;
     stim.t_offset                       = tcue3;
@@ -115,6 +116,7 @@ for ntrial = strt:height(Info.TrialInfo)
     Info.TrialInfo.trigtime{ix}         = [Info.TrialInfo.trigtime{ix};tcue1;tcue2;tcue3;t1;t2;t3];
         
     %% Draw 2nd sample
+    stim.dur.ISI                        = Info.TrialInfo(ix,:).ISI(2); % 2nd delay
     stim.order                       	= 2;
     stim.code                          	= 20 + Info.TrialInfo(ix,:).samp2Class;
     stim.t_offset                       = t3;
@@ -124,13 +126,14 @@ for ntrial = strt:height(Info.TrialInfo)
     Info.TrialInfo.trigtime{ix}      	= [Info.TrialInfo.trigtime{ix};t1;t2;t3]; 
     
     %% Draw the second cue    
+    stim.dur.ISI                        = Info.TrialInfo(ix,:).ISI(3); % 3rd delay
     CueInfo.order                       = 2;
     CueInfo.t_wait                      = stim.dur.ISI-stim.dur.target-stim.dur.mask;
     CueInfo.t_offset                    = t3;
     CueInfo.code                        = (CueInfo.order*100) + (CueInfo.type*10) + (CueInfo.attend);
     [tcue1,tcue2,tcue3]               	= taco_drawcue(CueInfo);
     
-    Info.TrialInfo.trigtime{ix}       	= [Info.TrialInfo.trigtime{ix};tcue1;tcue2;tcue3;t1;t2;t3]; clear tcue1 tcue2 t1 t2 t3
+    Info.TrialInfo.trigtime{ix}       	= [Info.TrialInfo.trigtime{ix};tcue1;tcue2;tcue3]; clear tcue1 tcue2 t1 t2 t3
     
     %% Draw probe
     stim.order                       	= 3;
@@ -145,7 +148,8 @@ for ntrial = strt:height(Info.TrialInfo)
     if strcmp(Info.MotorResponse,'yes')
         ctl.t_offset                    = t3; clear t1 t2 t3
         ctl.t_wait                      = stim.dur.ISI-stim.dur.target-stim.dur.mask;
-        [repRT,repButton,repCorrect]  	= taco_getResponse;
+        [repRT,repButton,repCorrect,t_disp]  	= taco_getResponse;
+        Info.TrialInfo.trigtime{ix}   	= [Info.TrialInfo.trigtime{ix};t_disp];
     else
         repRT                         	= 50;
         repButton                      	= 51;
