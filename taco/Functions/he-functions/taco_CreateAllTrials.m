@@ -114,7 +114,7 @@ for njitter = 1:length(possibJitter)
                 frame_length                                    = 1/60;
                 trial_structure(trial_idx).MaskCon              = 0.6; % fixed                
                 
-                trial_structure(trial_idx).nbloc                = njitter;
+                trial_structure(trial_idx).nbloc                = possibJitter(njitter);
                 trial_structure(trial_idx).mapping            	= nmapping;
                 
                 trial_structure(trial_idx).repRT                = [];
@@ -131,7 +131,7 @@ for njitter = 1:length(possibJitter)
                 trial_structure(trial_idx).probeClass         	= probe_type;
                 % -- 
                 
-                trial_structure(trial_idx).bloctype             = jitternames{njitter};
+                trial_structure(trial_idx).bloctype             = jitternames{possibJitter(njitter)};
                 
                 trial_structure(trial_idx).trigtime             = [];
                 

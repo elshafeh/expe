@@ -1,7 +1,7 @@
 clear;
 
 % load log file
-subjectname             = 'test04';
+subjectname             = 'p001';
 filename                = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
 load(filename);
 
