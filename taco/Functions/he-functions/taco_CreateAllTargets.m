@@ -37,6 +37,7 @@ for n_con = 1:length(allContrast)
             stim.patch.freq_sd              = stim.patch.freq_mean / freqSdConstant; %JY: arbitrary
             
             allTarget{n_ori,n_freq}         = genBandpassOrientedGrating(stim.patch);
+            stim.stock{n_freq}              = allTarget{n_ori,n_freq};
             
             all_freq_mean                   = [all_freq_mean; stim.patch.freq_mean];
             all_freq_sd                     = [all_freq_sd; stim.patch.freq_sd ] ; %JY: arbitrary

@@ -14,7 +14,7 @@ Info.runtype               	= input('Session (train, block)          : ','s'); %
 Info.difficulty            	= input('[1-4] [easy-difficult]          : '); % Target contrast
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
-Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
+Info.debug                 	= 'yes' ; % if yes: you open smaller window (for debugging)
 Info.MotorResponse        	= 'yes'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
@@ -55,6 +55,13 @@ end
 
 if strcmp(Info.debug,'no')
     HideCursor;
+end
+
+%% show stim for subject
+
+for nstim = 1:2
+    taco_instructstim(nstim);
+    taco_playstim(stim.stock{nstim},AllMask{1})
 end
 
 if IsLinux
