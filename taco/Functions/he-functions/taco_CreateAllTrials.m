@@ -55,9 +55,24 @@ bloc_structure      = [];
 % define jitter
 % subsample for training blocks
 if strcmp(Info.runtype,'block')
-    possibJitter   	= [1 2 3]; % 
-    possibJitter   	= possibJitter(randperm(length(possibJitter))); % 
+    
+    possibJitter   	= [1 2 3
+                       1 3 2
+                       2 1 3
+                       2 3 1
+                       3 1 2
+                       3 2 1
+                       1 2 3
+                       1 3 2
+                       2 1 3
+                       2 3 1
+                       3 1 2
+                       3 2 1]; 
+    
+    tmp             = strsplit(Info.name,'p');tmp = str2double(tmp{end});
+    possibJitter   	= possibJitter(tmp,:); clear tmp;
     possibRepeat    = 1;
+    
 elseif strcmp(Info.runtype,'train')
     possibJitter   	= 1; % fixed (early) ; 1 block
     possibStim      = possibStim([1 5 8 12 16 20 24 29],:);

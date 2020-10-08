@@ -14,7 +14,7 @@ Info.runtype               	= input('Session (train, block)          : ','s'); %
 Info.difficulty            	= input('[1-4] [easy-difficult]          : '); % Target contrast
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
-Info.debug                 	= 'yes' ; % if yes: you open smaller window (for debugging)
+Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
 Info.MotorResponse        	= 'yes'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
@@ -73,9 +73,9 @@ end
 % just in case during one of the blocks , an error happened and the
 % experiment needed to be restarded : this script will make sure to restart
 % from the block with the missing trials
-strt                                    = taco_check_start(Info);
+strt                                    = 1; %taco_check_start(Info);
 
-for ntrial = strt:height(Info.TrialInfo)
+for ntrial = 1:height(Info.TrialInfo)
     
     ix                                  = ntrial;
     nw_b_flg                            = h_chk_if_new_block(Info,ix);
