@@ -21,3 +21,7 @@ end
 
 taco_drawFixation;
 Screen('Flip', wPtr);
+
+if IsLinux
+    scr.b.clearResponses;
+end
