@@ -85,6 +85,7 @@ end
 for njitter = 1:length(possibJitter)
     
     trial_idx       = 0;
+    det_jitter      = possibJitter(njitter);
     
     for nrepeat = 1:possibRepeat
         for nmapping = 1:2
@@ -129,7 +130,7 @@ for njitter = 1:length(possibJitter)
                 frame_length                                    = 1/60;
                 trial_structure(trial_idx).MaskCon              = 0.6; % fixed                
                 
-                trial_structure(trial_idx).nbloc                = possibJitter(njitter);
+                trial_structure(trial_idx).nbloc                = det_jitter;
                 trial_structure(trial_idx).mapping            	= nmapping;
                 
                 trial_structure(trial_idx).repRT                = [];
@@ -146,7 +147,7 @@ for njitter = 1:length(possibJitter)
                 trial_structure(trial_idx).probeClass         	= probe_type;
                 % -- 
                 
-                trial_structure(trial_idx).bloctype             = jitternames{possibJitter(njitter)};
+                trial_structure(trial_idx).bloctype             = jitternames{det_jitter};
                 
                 trial_structure(trial_idx).trigtime             = [];
                 
@@ -166,7 +167,7 @@ for njitter = 1:length(possibJitter)
     % matrix of isi 
     
     if strcmp(Info.runtype,'block')
-        switch njitter
+        switch det_jitter
             case 1
                 % fixed-fixed
                 possibISI                           = repmat(1.5,length(trial_structure),3); % cue-1st 1st-2nd 2nd-cue

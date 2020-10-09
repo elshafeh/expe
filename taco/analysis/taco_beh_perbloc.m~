@@ -1,32 +1,40 @@
 clear;clc;
 
-suj_list                        = { 'p001' 'p002' 'p003' 'p004' 'p005' 'p006'};
+suj_list    = { 'p001' 'p002' 'p003' 'p004' 'p005' 'p006'};
 
 for nsuj = 1:length(suj_list)
     
-    %load log file
+    %% load log file
     subjectname                 = suj_list{nsuj};
     filename                    = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
     load(filename);
     
-    Info                        = taco_cleaninfo(Info);%% remove empty trials
-    Info                        = taco_fixlog(subjectname,Info);%% fix subjects
+    % remove empty trials
+    Info                = taco_cleaninfo(Info);
+    
+    
+    %% fix subjects
+    Info                        = taco_fixlog(subjectname,Info);
+    
+    clear nt flg
+    
+    %% compute
     
     list_block                  = {'fixed-fixed' 'fixed-jittered' 'jitterd'};
     
     for nbloc = 1:length(list_block)
         
-        flg                      = find(strcmp([Info.TrialInfo.bloctype],list_block{nbloc}));
-        blocinfo                 = Info.TrialInfo(flg,:);
-        
-        nb_correct_trials        = sum(cell2mat([blocinfo.repCorrect]));
-        perc_correct(nsuj,nbloc) = nb_correct_trials ./ height(blocinfo);
-        
-        find_correct_trials      = find(cell2mat([blocinfo.repCorrect]) == 1);
-        med_rt(nsuj,nbloc)       = median(cell2mat(blocinfo(find_correct_trials,:).repRT));
-        
-        clear flg blocinfo nb_correct_trials find_correct_trials
-        
+       flg                      = find(strcmp([Info.TrialInfo.bloctype],list_block{nbloc}));
+       blocinfo                 = Info.TrialInfo(flg,:); 
+       
+       nb_correct_trials        = sum(cell2mat([blocinfo.repCorrect]));
+       perc_correct(nsuj,nbloc) = nb_correct_trials ./ height(blocinfo);
+       
+       find_correct_trials      = find(cell2mat([blocinfo.repCorrect]) == 1);
+       med_rt(nsuj,nbloc)     	= median(cell2mat(blocinfo(find_correct_trials,:).repRT)); 
+       
+       clear flg blocinfo nb_correct_trials find_correct_trials
+       
     end
     
     list_block                  = {'fixed-fixed' 'fixed-jittered' 'jittered'};
