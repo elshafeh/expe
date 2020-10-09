@@ -1,6 +1,6 @@
 clear;clc;
 
-suj_list    = {'p001' 'p002' 'p003'};
+suj_list    = {'p004' 'p001' 'p002' 'p003' 'p005' 'p006'};
 
 for nsuj = 1:length(suj_list)
     
@@ -20,7 +20,9 @@ for nsuj = 1:length(suj_list)
        perc_correct(nsuj,nbloc) = nb_correct_trials ./ height(blocinfo);
        
        find_correct_trials      = find(cell2mat([blocinfo.repCorrect]) == 1);
-       med_rt(nsuj,nbloc)     	= median(cell2mat(Info.TrialInfo(find_correct_trials,:).repRT)); 
+       med_rt(nsuj,nbloc)     	= median(cell2mat(blocinfo(find_correct_trials,:).repRT)); 
+       
+       clear flg blocinfo nb_correct_trials find_correct_trials
        
     end
     
@@ -30,20 +32,25 @@ for nsuj = 1:length(suj_list)
     
 end
 
+perc_correct(perc_correct == 0)     = NaN;
+
 subplot(2,2,1)
-hold on;
-plot(perc_correct','--s','LineWidth',2','MarkerSize',10);
-plot([1.1 2.1 3.1],mean(perc_correct,1),'-ks','LineWidth',2','MarkerSize',10);
-xlim([0 4]);xticks([1 2 3]);xticklabels(list_block);legend([suj_list 'avg'])
+mean_data                           = nanmean(perc_correct,1);
+bounds                              = nanstd(perc_correct, [], 1);
+bounds_sem                          = bounds ./ sqrt(size(perc_correct,1));
+errorbar(1:3,mean_data,bounds_sem,'CapSize',18);
+
+xlim([0 4]);xticks([1 2 3]);xticklabels(list_block);
 ylim([0.5 1]);grid;
 set(gca,'FontSize',20,'FontName', 'Calibri','FontWeight','Light');
 title('Accuracy')
 
 subplot(2,2,2)
-hold on;
-plot(med_rt','--s','LineWidth',2','MarkerSize',10);
-plot([1.1 2.1 3.1],mean(med_rt,1),'-ks','LineWidth',2','MarkerSize',10);
-xlim([0 4]);xticks([1 2 3]);xticklabels(list_block);legend([suj_list 'avg'])
-ylim([0.3 0.8]);grid;
+mean_data                           = nanmean(med_rt,1);
+bounds                              = nanstd(med_rt, [], 1);
+bounds_sem                          = bounds ./ sqrt(size(med_rt,1));
+errorbar(1:3,mean_data,bounds_sem,'CapSize',18);
+xlim([0 4]);xticks([1 2 3]);xticklabels(list_block);
+ylim([0.3 0.7]);grid;
 set(gca,'FontSize',20,'FontName', 'Calibri','FontWeight','Light');
 title('Median RT');

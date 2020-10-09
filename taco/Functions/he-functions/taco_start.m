@@ -1,6 +1,6 @@
 function taco_start
 
-global scr ctl Info
+global scr Info
 
 Info.logfolder          = ['Logfiles' filesep  Info.name];
 if ~exist(Info.logfolder)

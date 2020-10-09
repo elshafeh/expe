@@ -35,7 +35,11 @@ switch CueInfo.type
                         Screen('DrawLines', wPtr, allCoords,lineWidthPix, scr.black, [scr.xCtr cy1], 2);
                         
                     case 2 % attend second grating
+                        % for some reason unknown to me this was the only
+                        % to draw solid lines
+                        Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);
                         Screen('DrawLines', wPtr, allCoords,DashWidthPix, scr.black, [scr.xCtr cy1], 2);
+                        Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);
                         Screen('DrawLines', wPtr, allCoords,lineWidthPix, scr.black, [scr.xCtr cy2], 2);
                         
                 end
@@ -58,8 +62,7 @@ switch CueInfo.type
                     case 2 % attend second grating
                         
                         % for some reason unknown to me this was the only
-                        % to draw solid lines following the first un-inf
-                        % cues
+                        % to draw solid lines
                         Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);
                         Screen('DrawLines', wPtr, allCoords,DashWidthPix, scr.black, [scr.xCtr cy1], 2);
                         Screen('LineStipple', wPtr, 1, 1, [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]);

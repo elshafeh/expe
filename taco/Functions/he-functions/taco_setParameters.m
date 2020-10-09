@@ -7,7 +7,7 @@ sizeDisplay                 = [52.7, 29.6]; % LED screens used in the Donders
 if strcmp(Info.debug,'no')
     rectDisplay             = [];
 else
-    rectDisplay             = [50 50 200 200]; % small % [100 100 1300 700]; % big % 
+    rectDisplay             = [70 70 200 200]; % small % [100 100 1300 700]; % big % 
 end
 
 viewDistance                = 57; % in centimeters
