@@ -1,20 +1,30 @@
-clear;
+function taco_timing_stimduration
 
-% load log file
-subjectname             = 'p001';
-filename                = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
-load(filename);
+global info
 
-i                       = 0;
+figure;
+suj_list          	= info.suj_list;
 
-for nbloc = 1:3
+nrow              	= length(suj_list);
+ncol              	= 8;
+i                	= 0;
+
+for nsuj = 1:length(suj_list)
     
-    flg                 = find(Info.TrialInfo.nbloc == nbloc);
-    blocinfo            = Info.TrialInfo(flg,:);
+    % load log file
+    subjectname   	= suj_list{nsuj};
+    filename      	= ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
+    fprintf('loading %s\n',filename);
+    load(filename);
     
-    cue_duration     	= [];
-    gab_duration        = [];
-    mask_duration       = [];
+    Info         	= taco_cleaninfo(Info); % remove empty trials
+    Info          	= taco_fixlog(subjectname,Info);  % fix subjects
+    
+    blocinfo     	= Info.TrialInfo;
+    
+    cue_duration  	= [];
+    gab_duration   	= [];
+    mask_duration  	= [];
     
     for nt = 1:height(blocinfo)
         
@@ -27,15 +37,12 @@ for nbloc = 1:3
         
     end
     
-    nrow    = 3;
-    ncol    = 8;
-    
     for ncue = 1:2
         i = i + 1;
         subplot(nrow,ncol,i)
         histogram(cue_duration(:,ncue)*1000,'BinWidth',0.5);
         xlabel('Time (ms)');
-        title(['Cue ' num2str(ncue) 'onset-offset Bloc ' num2str(nbloc)]);
+        title(['Cue ' num2str(ncue) 'onset-offset - ' subjectname]);
         xlim([295 305]);
         ylim([0 50]);
     end
@@ -45,7 +52,7 @@ for nbloc = 1:3
         subplot(nrow,ncol,i)
         histogram(gab_duration(:,ngab)*1000,'BinWidth',0.5);
         xlabel('Time (ms)');
-        title(['Gab ' num2str(ngab) 'onset-offset Bloc ' num2str(nbloc)]);
+        title(['Gab ' num2str(ngab) 'onset-offset - ' subjectname]);
         xlim([95 105]);
         ylim([0 50]);
     end
@@ -55,9 +62,11 @@ for nbloc = 1:3
         subplot(nrow,ncol,i)
         histogram(mask_duration(:,nmask)*1000,'BinWidth',0.5);
         xlabel('Time (ms)');
-        title(['Mask ' num2str(nmask) 'onset-offset Bloc ' num2str(nbloc)]);
+        title(['Mask ' num2str(nmask) 'onset-offset - ' subjectname]);
         xlim([95 105]);
         ylim([0 50]);
     end
     
 end
+
+clc;

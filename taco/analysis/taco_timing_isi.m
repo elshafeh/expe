@@ -1,6 +1,9 @@
-clear;clc;
+function taco_timing_isi
 
-suj_list                        = {'test16102020_1' 'test16102020_2'}; %{'p001' 'p002' 'p003' 'p004' 'p005' 'p006'};
+global info
+
+figure;
+suj_list                        = info.suj_list;
 
 nrow                            = length(suj_list);
 ncol                            = 3;
@@ -11,6 +14,7 @@ for nsuj = 1:length(suj_list)
     % load log file
     subjectname                 = suj_list{nsuj};
     filename                    = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
+    fprintf('loading %s\n',filename);
     load(filename);
     
     Info                        = taco_cleaninfo(Info); % remove empty trials
@@ -59,3 +63,5 @@ for nsuj = 1:length(suj_list)
         end
     end
 end
+
+clc;

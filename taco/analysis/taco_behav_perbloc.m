@@ -1,12 +1,14 @@
-clear;clc;
+function taco_behav_perbloc
 
-suj_list                        = {'p001' 'p002' 'p003' 'p004' 'p005' 'p006'}; % 
+global info
+suj_list                        = info.suj_list;
 
 for nsuj = 1:length(suj_list)
     
     %load log file
     subjectname                 = suj_list{nsuj};
     filename                    = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
+    fprintf('loading %s\n',filename);
     load(filename);
     
     Info                        = taco_cleaninfo(Info);%% remove empty trials
