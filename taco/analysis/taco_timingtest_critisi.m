@@ -42,9 +42,7 @@ for nsuj = 1:length(suj_list)
                 nd_cue_onset        = trialtiming(11);
                 probe_onset         = trialtiming(14);
                 
-                tmp                 = [st_smp_onset nd_smp_onset nd_cue_onset probe_onset];
-                tmp                 = tmp - st_cue_onset;
-                
+                tmp                 = probe_onset - nd_cue_onset;
                 all_isi             = [all_isi; tmp]; clear tmp *_onset
                 
             end
@@ -53,8 +51,8 @@ for nsuj = 1:length(suj_list)
             histogram(all_isi,'BinWidth',0.04);
             xlabel('Time (s)');
             title([subjectname ' ISI ' list_block{nbloc}]);
-            xlim([0 9]);
-            xticks([0:0.5:9]);
+            xlim([0 4]);
+            xticks([0:0.5:4]);
             
         end
     end

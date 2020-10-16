@@ -1,6 +1,6 @@
 clear;clc;
 
-suj_list                                = {'p004' 'p001' 'p002' 'p003' 'p005' 'p006'};
+suj_list                                = {'p001' 'p002' 'p003' 'p004' 'p005' 'p006'};
 
 for nsuj = 1:length(suj_list)
     

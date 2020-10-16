@@ -70,7 +70,13 @@ if strcmp(Info.runtype,'block')
                        3 2 1]; 
     
     tmp             = strsplit(Info.name,'p');tmp = str2double(tmp{end});
-    possibJitter   	= possibJitter(tmp,:); clear tmp;
+    
+    if isnan(tmp) || tmp == 0
+        tmp      	= randi(9);
+        possibJitter   	= possibJitter(tmp,:); clear tmp;
+    else
+        possibJitter   	= possibJitter(tmp,:); clear tmp;
+    end
     possibRepeat    = 1;
     
 elseif strcmp(Info.runtype,'train')

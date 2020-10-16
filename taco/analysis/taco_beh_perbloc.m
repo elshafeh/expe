@@ -1,6 +1,6 @@
 clear;clc;
 
-suj_list                        = { 'p001' 'p002' 'p003' 'p004' 'p005' 'p006'};
+suj_list                        = {'p001' 'p002' 'p003' 'p004' 'p005' 'p006'}; % 
 
 for nsuj = 1:length(suj_list)
     
@@ -29,7 +29,7 @@ for nsuj = 1:length(suj_list)
         
     end
     
-    list_block                  = {'fixed-fixed' 'fixed-jittered' 'jittered'};
+    list_block                  = {'fixed-fixed' 'jittered-fixed' 'jittered'};
     
     keep suj_list nsuj perc_correct med_rt list_block
     
@@ -57,3 +57,5 @@ xlim([0 4]);xticks([1 2 3]);xticklabels(list_block);
 ylim([0.3 0.7]);grid;
 set(gca,'FontSize',20,'FontName', 'Calibri','FontWeight','Light');
 title('Median RT');
+
+clear bounds*
