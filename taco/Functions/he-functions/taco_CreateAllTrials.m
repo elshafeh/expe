@@ -67,6 +67,12 @@ if strcmp(Info.runtype,'block')
                        2 1 3
                        2 3 1
                        3 1 2
+                       3 2 1
+                       1 2 3
+                       1 3 2
+                       2 1 3
+                       2 3 1
+                       3 1 2
                        3 2 1]; 
     
     tmp             = strsplit(Info.name,'p');tmp = str2double(tmp{end});
