@@ -4,8 +4,8 @@ global wPtr scr stim Info
 
 taco_darkenBackground;
 
-intruct_text{1}         = '\n\nClick to see your low frequency sitmulus\n\n';
-intruct_text{2}         = '\n\nClick to see your high frequency sitmulus\n\n';
+intruct_text{1}         = '\n\nClick to see your low frequency stimulus\n\n';
+intruct_text{2}         = '\n\nClick to see your high frequency stimulus\n\n';
 
 
 DrawFormattedText(wPtr, intruct_text{nstim}, 'center', 'center', scr.black);
