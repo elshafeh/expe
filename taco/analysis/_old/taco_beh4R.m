@@ -1,6 +1,6 @@
 clear;clc;
 
-suj_list                                = {'p001' 'p002' 'p003' 'p004' 'p005' 'p006'}; % 
+suj_list                                = {'p006' 'p007' 'p008' 'p009' 'p011' 'p012'}; % 'p010' 
 i                                       = 0;
 
 for nsuj = 1:length(suj_list)
@@ -8,6 +8,7 @@ for nsuj = 1:length(suj_list)
     %load log file
     subjectname                         = suj_list{nsuj};
     filename                            = ['../Logfiles/' subjectname '/' subjectname '_taco_block_Logfile.mat'];
+    fprintf('loading %s\n',filename);
     load(filename);
     
     Info                                = taco_cleaninfo(Info);%% remove empty trials
@@ -21,6 +22,7 @@ for nsuj = 1:length(suj_list)
         
         flg                             = find(strcmp([Info.TrialInfo.bloctype],list_block{nbloc}));
         blocinfo                        = Info.TrialInfo(flg,:);
+        
         for ncue = 1:2
             for natt = 1:2
                                 
@@ -36,7 +38,11 @@ for nsuj = 1:length(suj_list)
                 perc_correct            = nb_correct_trials ./ height(condinfo);
                 
                 find_correct_trials    	= find(cell2mat([condinfo.repCorrect]) == 1);
-                med_rt                  = median(cell2mat(condinfo(find_correct_trials,:).repRT));
+                rt_vector               = cell2mat(condinfo(find_correct_trials,:).repRT);
+                rt_no_outlier           = calc_tukey(rt_vector);
+                
+                med_rt                  = median(rt_vector);
+                tuk_rt                  = median(rt_vector(rt_no_outlier));
                 
                 i                       = i + 1;
                 
@@ -46,9 +52,9 @@ for nsuj = 1:length(suj_list)
                 behav_summary(i).attend	= list_attend{natt};
                 behav_summary(i).perc_correct	= perc_correct;
                 behav_summary(i).med_rt	= med_rt;
-
+                behav_summary(i).tuk_rt	= tuk_rt;
                 
-                clear condinfo mtrx_find flg nb_correct_trials perc_correct find_correct_trials med_rt
+                clear condinfo mtrx_find flg nb_correct_trials perc_correct find_correct_trials med_rt tuk_rt
                 
             end
         end
