@@ -11,7 +11,7 @@ global wPtr scr stim ctl Info el useEyetrack
 
 Info.name                 	= input('Subject name                 	: ','s'); % example sub001
 Info.runtype               	= input('Session (train, block)          : ','s'); % training , main experiment or localizer
-Info.difficulty            	= input('[1-6] [easy-difficult]          : '); % Target contrast
+Info.difficulty            	= input('[0.3-0.49] [easy-difficult]          : '); % Target contrast
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
 Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)

@@ -23,8 +23,10 @@ StimDeg             = 90;
 % adapt difference between frequenceies
 % aka poor man's staircase
 
-difficulty_levels   = linspace(0.2,0.49,6);
-StimCyc             = [difficulty_levels(Info.difficulty) 0.5];
+% difficulty_levels   = [0.3 0.4 0.43 0.44 0.45 0.46 0.47];
+% StimCyc             = [difficulty_levels(Info.difficulty) 0.5];
+
+StimCyc             = [Info.difficulty 0.5];
 
 jitternames     	= {'early' 'late' 'jittered'};
 possibMatch         = [1 0]; % {'yes','no'};
