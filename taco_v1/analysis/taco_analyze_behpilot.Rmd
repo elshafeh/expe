@@ -1,0 +1,253 @@
+---
+title: "Taco Behavioral Analysis"
+author: "Hesham ElShafei"
+date: "26/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dae); library(nlme);library(effects);library(psych);library(interplot);
+library(devtools);library(ez);library(Rmisc);library(wesanderson);
+library(lme4);library(lsmeans);library(plotly);library(ggplot2);
+library(ggpubr);library(dplyr);library(scales)
+library(ggthemes);library(readr);library(tidyr);library(Hmisc);library(broom)
+library(plyr);library(RColorBrewer);library(reshape2);library(tidyverse)
+```
+
+## R Markdown
+
+This is how i'm analyzing the behavioral data from the pilots! and also a way for me to learn about Markdown :)
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. Or yu can type in render("Dropbox/project_bike/analysis/bike_analyzebehav.Rmd").
+
+Here we were contrasting 3 jitter conditions:
+
+[1] fix-fix ; samples , cues and probe occur at a fixed SOA of 1.5s
+
+[2] jit-fix ; samples/cues are jittered ?? 100 ms jitter but the probe occurs at 1.5s from the second cue -- this was suggested by Elie to get rid of evoked responses
+
+[3] fix-jit ; samples/occur at a fixed SOA of 1.5s while probe occurs at jitterd SOA between 1.5 and 3.5 sec
+
+Let's get started: I load in single trial data and set some parameters
+
+```{r,echo=FALSE}
+rm(list=ls())
+
+cbPalette_1         <- c("#FC4E07","#00AFBB") 
+cbPalette_2         <-c("#CC6666", "#4E84C4") 
+
+pd                  <- position_dodge(0.2)
+
+data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/me/expe/taco/analysis/taco_behavpilot_singletrial.txt",sep = ',',header=T)
+data_table$bloc     <- factor(data_table$bloc , levels = c("fix-fix","jit-fix","fix-jit"))
+data_table_correct  <- data_table[data_table$correct==1,]
+
+nb_suj  <- length(unique(data_table$suj))
+
+lim_perc = c(0.6,1)
+lim_rt    = c(0.4,0.65)
+
+```
+
+## Performance (accuracy and RT ) Check
+Then I summarize the data for both Accuracy across subject to see if there are any bad ones
+
+```{r,message=FALSE,echo=FALSE}
+sum_table_acc   <- data_table %>%
+  group_by(suj) %>%
+  mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
+  summarise(accuracy = max(percent))
+
+sum_table_rt   <- data_table_correct %>%
+  group_by(suj) %>%
+  mutate(tot= median(rt))%>%
+  summarise(rt = max(tot))
+
+p1 <- ggplot(sum_table_acc, aes(x=suj, y=accuracy, label=suj)) +
+  geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Accuracy (n = ",nb_suj,")"))+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  ylim(lim_perc)
+
+p2 <- ggplot(sum_table_rt, aes(x=suj, y=rt, label=suj)) +
+  geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Median RT"))+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  ylim(lim_rt)
+
+ggarrange(p1,p2,ncol = 1, nrow = 2)
+
+
+```
+
+## Plot performance across jitter conditions
+
+```{r pressure,message=TRUE,echo=FALSE}
+
+sum_table_acc   <- data_table %>%
+  group_by(suj,bloc) %>%
+  mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
+  summarise(accuracy = max(percent))
+
+sum_table_rt   <- data_table_correct %>%
+  group_by(suj,bloc) %>%
+  mutate(tot= median(rt))%>%
+  summarise(rt = max(tot))
+
+tgc_perc <- summarySE(sum_table_acc, measurevar="accuracy", groupvars=c("bloc"), na.rm = TRUE)
+tgc_rt  <- summarySE(sum_table_rt, measurevar="rt", groupvars=c("bloc"), na.rm = TRUE)
+
+p1 <- ggplot(tgc_perc, aes(x=bloc, y=accuracy)) +
+  geom_point(data=sum_table_acc,aes(group=suj),alpha=0.2)+
+  geom_line(data=sum_table_acc,aes(group=suj),alpha=0.2)+
+  geom_point(position=pd, size=2,group=1)+
+  geom_line(position=pd,group=1) +
+  geom_errorbar(aes(ymin=accuracy-se, ymax=accuracy+se), width=.1, position=pd) +
+  ylim(lim_perc)+ggtitle("Accuracy")+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+
+p2 <- ggplot(tgc_rt, aes(x=bloc, y=rt)) + 
+  geom_point(data=sum_table_rt,aes(group=suj),alpha=0.2)+
+  geom_line(data=sum_table_rt,aes(group=suj),alpha=0.2)+
+  geom_point(position=pd, size=2,group=1)+
+  geom_line(position=pd,group=1) +
+  geom_errorbar(aes(ymin=rt-se, ymax=rt+se), width=.1, position=pd) +
+  ylim(lim_rt)+ggtitle("Median RT")+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+
+p3 <- ggplot(sum_table_acc, aes(x=bloc, y=accuracy)) +
+  # geom_point(data=sum_table_acc,aes(group=suj),alpha=0.2)+
+  # geom_line(data=sum_table_acc,aes(group=suj),alpha=0.2)+
+  geom_boxplot(alpha = 0.2)+
+  ylim(lim_perc)+ggtitle("Accuracy")+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+
+p4 <- ggplot(sum_table_rt, aes(x=bloc, y=rt)) + 
+  # geom_point(data=sum_table_rt,aes(group=suj),alpha=0.2)+
+  # geom_line(data=sum_table_rt,aes(group=suj),alpha=0.2)+
+  geom_boxplot(alpha = 0.2)+
+  ylim(lim_rt)+ggtitle("Median RT")+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+
+ggarrange(p1,p2,p3,p4,ncol = 2, nrow = 2)
+
+jitter <- sum_table_acc$bloc
+accuracy <- sum_table_acc$accuracy 
+pairwise.t.test(accuracy, jitter, p.adj = "bonferroni",paired = TRUE)
+
+jitter <- sum_table_rt$bloc
+rt <- sum_table_rt$rt 
+pairwise.t.test(rt, jitter, p.adj = "bonferroni",paired = TRUE)
+
+
+```
+
+## Plot performance across jitter and cue/attend conditions
+
+```{r ,message=FALSE,echo=FALSE}
+
+sum_table_acc   <- data_table %>%
+  group_by(suj,bloc,cue) %>%
+  mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
+  summarise(accuracy = max(percent))
+
+sum_table_rt   <- data_table_correct %>%
+  group_by(suj,bloc,cue) %>%
+  mutate(tot= median(rt))%>%
+  summarise(rt = max(tot))
+
+tgc_perc <- summarySE(sum_table_acc, measurevar="accuracy", groupvars=c("bloc","cue"), na.rm = TRUE)
+tgc_rt  <- summarySE(sum_table_rt, measurevar="rt", groupvars=c("bloc","cue"), na.rm = TRUE)
+
+p1 <- ggplot(tgc_perc, aes(x=bloc, y=accuracy,color=cue,group=cue)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=accuracy-se, ymax=accuracy+se), width=.1, position=pd) +
+  ylim(lim_perc)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank(), legend.position = "none")+
+  scale_colour_manual(values = cbPalette_1)+
+  scale_fill_manual(values = cbPalette_1)+ggtitle("Accuracy")
+
+p2 <- ggplot(tgc_rt, aes(x=bloc, y=rt,color=cue,group=cue)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=rt-se, ymax=rt+se), width=.1, position=pd) +
+  ylim(lim_rt)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank(), legend.position = c(0.88,1),legend.title=element_blank())+
+  scale_colour_manual(values = cbPalette_1)+
+  scale_fill_manual(values = cbPalette_1)+ggtitle("Median RT")
+
+ggarrange(p1,p2,ncol = 2, nrow =1)
+
+sum_table_acc   <- data_table %>%
+  group_by(suj,bloc,attend) %>%
+  mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
+  summarise(accuracy = max(percent))
+
+sum_table_rt   <- data_table_correct %>%
+  group_by(suj,bloc,attend) %>%
+  mutate(tot= median(rt))%>%
+  summarise(rt = max(tot))
+
+tgc_perc <- summarySE(sum_table_acc, measurevar="accuracy", groupvars=c("bloc","attend"), na.rm = TRUE)
+tgc_rt  <- summarySE(sum_table_rt, measurevar="rt", groupvars=c("bloc","attend"), na.rm = TRUE)
+
+p3 <- ggplot(tgc_perc, aes(x=bloc, y=accuracy,color=attend,group=attend)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=accuracy-se, ymax=accuracy+se), width=.1, position=pd) +
+  ylim(lim_perc)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank(), legend.position = "none")+
+  scale_colour_manual(values = cbPalette_2)+
+  scale_fill_manual(values = cbPalette_2)+ggtitle("")
+
+p4 <- ggplot(tgc_rt, aes(x=bloc, y=rt,color=attend,group=attend)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=rt-se, ymax=rt+se), width=.1, position=pd) +
+  ylim(lim_rt)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank(), legend.position = c(0.85,1),legend.title=element_blank())+
+  scale_colour_manual(values = cbPalette_2)+
+  scale_fill_manual(values = cbPalette_2)+ggtitle("")
+
+ggarrange(p3,p4,ncol = 2, nrow =1)
+
+```
+
+## Plot performance across all conditions
+
+```{r ,message=FALSE,echo=FALSE}
+
+sum_table_acc   <- data_table %>%
+  group_by(suj,bloc,cue,attend) %>%
+  mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
+  summarise(accuracy = max(percent))
+
+sum_table_rt   <- data_table_correct %>%
+  group_by(suj,bloc,cue,attend) %>%
+  mutate(tot= median(rt))%>%
+  summarise(rt = max(tot))
+
+tgc_perc <- summarySE(sum_table_acc, measurevar="accuracy", groupvars=c("bloc","cue","attend"), na.rm = TRUE)
+tgc_rt  <- summarySE(sum_table_rt, measurevar="rt", groupvars=c("bloc","cue","attend"), na.rm = TRUE)
+
+p1 <- ggplot(tgc_perc, aes(x=attend, y=accuracy,color=cue,group=cue)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=accuracy-se, ymax=accuracy+se), width=.1, position=pd) +
+  ylim(lim_perc)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  scale_colour_manual(values = cbPalette_1)+
+  scale_fill_manual(values = cbPalette_1)+facet_wrap(~bloc)
+
+p2 <- ggplot(tgc_rt, aes(x=attend, y=rt,color=cue,group=cue)) + 
+  geom_point(position=pd, size=2)+
+  geom_line(position=pd) +
+  geom_errorbar(aes(ymin=rt-se, ymax=rt+se), width=.1, position=pd) +
+  ylim(lim_rt)+
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  scale_colour_manual(values = cbPalette_1)+
+  scale_fill_manual(values = cbPalette_1)+facet_wrap(~bloc)
+
+ggarrange(p1,p2,ncol = 1, nrow =2)
+
+```
