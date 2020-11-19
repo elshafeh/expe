@@ -23,10 +23,8 @@ StimDeg             = 90;
 % adapt difference between frequenceies
 % aka poor man's staircase
 
-% difficulty_levels   = [0.3 0.4 0.43 0.44 0.45 0.46 0.47];
-% StimCyc             = [difficulty_levels(Info.difficulty) 0.5];
-
-StimCyc             = [Info.difficulty 0.5];
+difficulty_levels   = [0.35 0.4 0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48];
+StimCyc             = [difficulty_levels(Info.difficulty) 0.5];
 
 jitternames     	= {'early' 'late' 'jittered'};
 possibMatch         = [1 0]; % {'yes','no'};
@@ -44,7 +42,7 @@ if strcmp(Info.runtype,'block')
     % create latin square for block order ; here 4 and 3 are jittered
     % thus 50:50 fixed:jittered
     
-    possibJitter   	= [ 1 2 4 3
+    possibJitter   	= [1 2 4 3
                         2 3 1 4
                         3 4 2 1
                         4 1 3 2];
@@ -62,9 +60,12 @@ if strcmp(Info.runtype,'block')
     possibRepeat    = 1;
     
 elseif strcmp(Info.runtype,'train')
+    
     possibJitter   	= 1; % fixed (early) ; 1 block
-    possibStim      = possibStim([1 5 8 12 16 20 24 29],:);
+    shuffle_vector  = randperm(length(possibStim));
+    possibStim      = possibStim(shuffle_vector(1:16),:); % choose only 16 trials
     possibRepeat    = 1;
+    
 end
 
 % to make it easier for loops later :)

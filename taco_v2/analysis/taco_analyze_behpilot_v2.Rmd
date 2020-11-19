@@ -19,9 +19,9 @@ library(plyr);library(RColorBrewer);library(reshape2);library(tidyverse)
 
 This is how i'm analyzing the behavioral data from the pilots! and also a way for me to learn about Markdown :)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. Or yu can type in render("Dropbox/project_bike/analysis/bike_analyzebehav.Rmd").
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. Or you can type in render("Dropbox/project_bike/analysis/bike_analyzebehav.Rmd").
 
-Let's get started: I load in single trial data and set some parameters
+![](/Users/heshamelshafei/Documents/GitHub/me/expe/taco_v2/Doc/taco v2 design.png)
 
 ```{r,echo=FALSE}
 rm(list=ls())
@@ -31,27 +31,24 @@ cbPalette_2         <-c("#CC6666", "#4E84C4")
 
 pd                  <- position_dodge(0.2)
 
-data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/me/expe/taco/analysis/taco_behavpilot_singletrial.txt",sep = ',',header=T)
-data_table$bloc     <- factor(data_table$bloc , levels = c("fix-fix","jit-fix","jit"))
+data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/me/expe/taco_v2/analysis/taco_v2_behavpilot_singletrial.txt", sep = ',',header=T)
+data_table$bloc     <- factor(data_table$bloc , levels = c("early","late","jittered"))
 data_table_correct  <- data_table[data_table$correct==1,]
 
 nb_suj  <- length(unique(data_table$suj))
 
-lim_perc = c(0.7,1)
+lim_perc = c(0.5,1)
 lim_rt    = c(0.4,0.65)
 
 ```
 
 ## Performance (accuracy and RT ) Check
-Then I summarize the data for both Accuracy across subject to see if there are any bad ones
 
 ```{r,message=FALSE,echo=FALSE}
 sum_table_acc   <- data_table %>%
   group_by(suj) %>%
   mutate(tot= length(correct), len= sum(correct),percent = len/tot)%>%
   summarise(accuracy = max(percent))
-
-nb_suj
 
 sum_table_rt   <- data_table_correct %>%
   group_by(suj) %>%
@@ -60,12 +57,12 @@ sum_table_rt   <- data_table_correct %>%
 
 p1 <- ggplot(sum_table_acc, aes(x=suj, y=accuracy, label=suj)) +
   geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Accuracy (n = ",nb_suj,")"))+
-  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
   ylim(c(0.5,1))
 
 p2 <- ggplot(sum_table_rt, aes(x=suj, y=rt, label=suj)) +
   geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Median RT"))+
-  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())
+  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
   ylim(0.3,1)
 
 ggarrange(p1,p2,ncol = 2, nrow = 1)

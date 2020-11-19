@@ -11,7 +11,7 @@ global wPtr scr stim ctl Info el useEyetrack
 
 Info.name                 	= input('Subject name                 	: ','s'); % example sub001
 Info.runtype               	= input('Session (train, block)          : ','s'); % training , main experiment or localizer
-Info.difficulty            	= input('[0.3-0.49] [easy-difficult]          : '); % Target contrast
+Info.difficulty            	= input('[1 - 10] [easy-difficult]       : '); % Target contrast
 Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 
 Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
@@ -64,10 +64,7 @@ for nstim = 1:2
     taco_playstim(stim.stock{nstim})
 end
 
-if IsLinux
-    scr.b.clearResponses;
-end
-
+h_emptybitsi;
 %% Loop Through Trials
 
 % just in case during one of the blocks , an error happened and the
@@ -90,9 +87,7 @@ for ntrial = 1:height(Info.TrialInfo)
         taco_BlockStart;
     end
     
-    if IsLinux
-        scr.b.clearResponses;
-    end
+    h_emptybitsi;
     
     %% fixed parameters
     CueInfo.dur                     	= stim.dur.cue;
@@ -173,10 +168,8 @@ for ntrial = 1:height(Info.TrialInfo)
     
     %% End Trial
     tfin                             	= taco_endTrial;
-    
-    if IsLinux
-        scr.b.clearResponses;
-    end
+
+    h_emptybitsi;
     
     %% End block
     % this will end block and save the block information ;
@@ -185,6 +178,7 @@ for ntrial = 1:height(Info.TrialInfo)
     
     if strcmp(Info.runtype,'train') 
         if ntrial == Info.blocklength
+            h_emptybitsi;
             taco_BlockEnd(1:Info.blocklength);toc;
             save(Info.logfilename,'Info','-v7.3');
         end
@@ -196,16 +190,15 @@ for ntrial = 1:height(Info.TrialInfo)
         if ~isempty(fnd_full_break)
             i1  = ntrial - (Info.blocklength-1);
             i2  = ntrial;
+            h_emptybitsi;
             taco_BlockEnd([i1 i2]);toc;
             save(Info.logfilename,'Info','-v7.3');
         end
         
     end
     
-    if IsLinux
-        scr.b.clearResponses;
-    end
-    
+    h_emptybitsi;
+
     clear CueInfo nw_b_flg
     
 end

@@ -23,7 +23,6 @@ for nsuj = 1:length(suj_list)
     load(filename);
     
     Info         	= taco_cleaninfo(Info); % remove empty trials
-    Info          	= taco_fixlog(subjectname,Info);  % fix subjects
     
     blocinfo     	= Info.TrialInfo;
     

@@ -23,7 +23,6 @@ for nsuj = 1:length(suj_list)
     load(filename);
         
     Info                        = taco_cleaninfo(Info); % remove empty trials
-    Info                        = taco_fixlog(subjectname,Info);  % fix subjects
     
     list_block                  = {'early' 'late' 'jittered'};
     
@@ -54,8 +53,8 @@ for nsuj = 1:length(suj_list)
         histogram(all_iti,'BinWidth',0.1);
         xlabel('Time (s)');
         title([subjectname ' iti: Gab2NextCue ' list_block{nbloc}]);
-        %         xlim([3 4.5]);
-        %         ylim([0 30]);
+        xlim([3 4.5]);
+        ylim([0 30]);
         
     end
 end

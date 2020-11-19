@@ -2,7 +2,7 @@ clear;clc;close all;
 
 global info
 
-info.suj_list  	= {'test01'};
+info.suj_list  	= {'p001' 'p002'};
 
 taco_timing_isi;
 taco_timing_critisi;

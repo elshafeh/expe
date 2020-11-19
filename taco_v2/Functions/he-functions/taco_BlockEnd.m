@@ -3,13 +3,9 @@ function taco_BlockEnd(ix)
 global wPtr scr stim Info
 
 %% -- force it to wait for input
-if IsLinux
-    scr.b.clearResponses;
-end
+h_emptybitsi;
 WaitSecs(stim.dur.InstructionPause);
-if IsLinux
-    scr.b.clearResponses;
-end
+h_emptybitsi;
 %% -- force it to wait for input
 
 i1                                          = ix(1);
@@ -19,9 +15,7 @@ bloc_perf                                   = sum(bloc_perf)/length(bloc_perf);
 
 endtext1                                    = [num2str(bloc_perf) '\n\n! GREAT JOB !'];
 
-if IsLinux
-    scr.b.clearResponses;
-end
+h_emptybitsi;
 
 if IsLinux
     scr.b.sendTrigger(251); % end trigger
