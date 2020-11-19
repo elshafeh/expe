@@ -1,5 +1,0 @@
-clear ; clc ; 
-
-% PrepAtt2_WholeBrainCoherence_ComputeCommonFilter;
-PrepAtt2_WholeBrainCoherence_ComputeSeparateConditions;
-PrepAtt22_WholeBrainCoherenceAndPhaseLock;

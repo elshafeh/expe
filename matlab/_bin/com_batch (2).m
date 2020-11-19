@@ -1,2 +1,0 @@
-com_lcmv_find_alpha_peak;
-com_lcmv_find_beta_peak_linear;
