@@ -1,0 +1,145 @@
+######################
+### trial template ###
+######################
+
+$isi = '1000'; # + int($random_value * 800)'; # isi with length 1
+
+### the actual experimental trial 
+trial {
+
+	trial_duration = forever; # '5000 + $isi'; #
+	trial_type 				= first_response;
+	all_responses 			= false;
+	
+	correct_feedback 		= correct;
+	incorrect_feedback 	= incorrect;
+	no_response_feedback = noresp;
+
+	# ITI FIX
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 0;
+	duration 	= 1000;
+	code 			= "cross_start";
+	
+	# first cue [0 250]
+	picture {
+		bitmap $cue_1;
+		x = 0; y = 0;
+		};
+	time 			= 1000;
+	duration 	= 250;
+	code 			= $cue_1_code;
+	
+	# fixation [250 250]
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 1250;
+	duration 	= 250;
+	code 			= "cross_default";
+	
+	# first dis [500 250]
+	picture {
+		bitmap $dis_1;
+		x = 0; y = 0;
+		};
+	time 			= 1500;
+	duration 	= 250;
+	code 			= $dis_1_code;
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 1750;
+	duration 	= 167;
+	code 			= "cross_default";
+	
+	# second dis []
+	picture {
+		bitmap $dis_2;
+		x = 0; y = 0;
+		};
+	time 			= 1917;
+	duration 	= 250;
+	code 			= $dis_2_code;
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 2167;
+	duration 	= 167;
+	code 			= "cross_default";
+	
+	# third dis []
+	picture {
+		bitmap $dis_3;
+		x = 0; y = 0;
+		};
+	time 			= 2334;
+	duration 	= 250;
+	code 			= $dis_3_code;
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 2584;
+	duration 	= 167;
+	code 			= "cross_default";
+	
+	# fourth dis []
+	picture {
+		bitmap $dis_4;
+		x = 0; y = 0;
+		};
+	time 			= 2751;
+	duration 	= 250;
+	code 			= $dis_4_code;
+	
+	# fixation []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 3001;
+	duration 	= 250;
+	code 			= "cross_default";
+	
+	# second cue []
+	picture {
+		bitmap $cue_2;
+		x = 0; y = 0;
+		};
+	time 			= 3251;
+	duration 	= 250;
+	code 			= $cue_2_code;
+	
+	# respond []
+	picture {
+		bitmap cross_respond;
+		x = 0; y = 0;
+		};
+	time 			= 3501;
+	duration 	= 250;
+	code 			= "cross_respond";
+	
+	# wait_cross []
+	picture {
+		bitmap cross_default;
+		x = 0; y = 0;
+		};
+	time 			= 3751;
+	code 			= "cross_wait";
+	
+	target_button = $resp;
+	
+};

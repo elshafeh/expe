@@ -1,0 +1,23 @@
+Scenario - bike_pilot_practice
+Logfile written - 09/17/2019 09:39:24
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+sub06	1	Picture	instruct	10133	0	1	39854	1	0	next	other	0
+sub06	1	Response	1	49876	39743	1
+sub06	2	Picture	cross_start	49987	0	1	10130	1	0	10000	other	0
+sub06	2	Picture	arrow_right	60117	10130	1	2533	1	10000	2500	other	0
+sub06	2	Picture	cross_default	62650	12663	1	3865	1	12500	3750	other	0
+sub06	2	Picture	cross_default	66515	16528	1	2533	1	16250	2500	other	0
+sub06	2	Picture	cross_default	69048	19061	1	6345	1	18750	2500	other	0
+sub06	2	Quit		69316	19329	NA
+
+
+Event Type	Code	Type	Response	RT	RT Uncertainty	Time	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur
+
+Picture	instruct	other				10133	1	39854	1	0	next
+Picture	cross_start	other				49987	1	10130	1	0	10000
+Picture	arrow_right	other				60117	1	2533	1	10000	2500
+Picture	cross_default	other				62650	1	3865	1	12500	3750
+Picture	cross_default	other				66515	1	2533	1	16250	2500
+Picture	cross_default	other				69048	1	6345	1	18750	2500
