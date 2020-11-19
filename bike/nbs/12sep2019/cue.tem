@@ -1,9 +1,0 @@
-# cue template
-bitmap { filename = "arrow_left_80.png";} arrow_left;
-bitmap { filename = "arrow_right_80.png";} arrow_right;
-bitmap { filename = "arrow_stay_80.png";} arrow_stay;
-bitmap { filename = "arrow_switch_80.png";} arrow_switch;
-bitmap { filename = "cross_respond_80.png";} cross_respond;
-bitmap { filename = "cross_correct_80.png";} cross_correct;
-bitmap { filename = "cross_incorrect_80.png";}cross_incorrect;
-bitmap { filename = "cross_default_80.png";} cross_default;
