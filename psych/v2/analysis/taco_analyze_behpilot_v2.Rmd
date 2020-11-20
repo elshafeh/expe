@@ -21,7 +21,7 @@ This is how i'm analyzing the behavioral data from the pilots! and also a way fo
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. Or you can type in render("Dropbox/project_bike/analysis/bike_analyzebehav.Rmd").
 
-![](/Users/heshamelshafei/Documents/GitHub/me/expe/taco_v2/Doc/taco v2 design.png)
+![](/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/Doc/taco v2 design.png)
 
 ```{r,echo=FALSE}
 rm(list=ls())
@@ -31,9 +31,9 @@ cbPalette_2         <-c("#CC6666", "#4E84C4")
 
 pd                  <- position_dodge(0.2)
 
-data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/me/expe/taco_v2/analysis/taco_v2_behavpilot_singletrial.txt", sep = ',',header=T)
-data_table$bloc     <- factor(data_table$bloc , levels = c("early","late","jittered"))
-data_table_correct  <- data_table[data_table$correct==1,]
+data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/analysis/taco_v2_behavpilot_singletrial.txt", sep = ',',header=T)
+data_table$bloc     <- factor(data_table$bloc , levels = c("early","late","jittered")) # re-order factor names
+data_table_correct  <- data_table[data_table$correct==1,] # use only correct trials to compute RT
 
 nb_suj  <- length(unique(data_table$suj))
 
@@ -201,7 +201,7 @@ p1 <- ggplot(tgc_perc, aes(x=attend, y=accuracy,color=cue,group=cue)) +
   geom_line(position=pd) +
   geom_errorbar(aes(ymin=accuracy-se, ymax=accuracy+se), width=.1, position=pd) +
   ylim(lim_perc)+
-  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  theme(text = element_text(size=14),axis.title.x=element_blank())+
   scale_colour_manual(values = cbPalette_1)+
   scale_fill_manual(values = cbPalette_1)+facet_wrap(~bloc)
 
@@ -210,7 +210,7 @@ p2 <- ggplot(tgc_rt, aes(x=attend, y=rt,color=cue,group=cue)) +
   geom_line(position=pd) +
   geom_errorbar(aes(ymin=rt-se, ymax=rt+se), width=.1, position=pd) +
   ylim(lim_rt)+
-  theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
+  theme(text = element_text(size=14),axis.title.x=element_blank())+
   scale_colour_manual(values = cbPalette_1)+
   scale_fill_manual(values = cbPalette_1)+facet_wrap(~bloc)
 
