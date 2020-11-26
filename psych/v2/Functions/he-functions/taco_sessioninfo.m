@@ -4,7 +4,7 @@ global Info
 
 clc;fprintf('\n');
 isnew                           = input('Start a new session?    [y/n]    : ','s');
-prev_sub                        = length(dir('/data/Users/hesels/taco/psych/v2/Logfiles/p*'));
+prev_sub                        = length(dir('Logfiles/p*'));
 
 switch isnew
     case 'y'
