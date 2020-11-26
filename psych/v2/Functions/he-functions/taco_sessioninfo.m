@@ -2,7 +2,7 @@ function taco_sessioninfo
 
 global Info
 
-clc;
+clc;fprintf('\n');
 isnew                           = input('Start a new session?    [y/n]    : ','s');
 prev_sub                        = length(dir('Logfiles/p*/p*_taco_v2_block_Logfile.mat'));
 

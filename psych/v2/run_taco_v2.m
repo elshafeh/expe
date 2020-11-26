@@ -1,9 +1,6 @@
 %% Set Environment
 
-tic;
-
-sca;
-clear;
+tic; sca;clear;
 
 addpath(genpath('Functions/'));
 
@@ -13,6 +10,7 @@ taco_sessioninfo;
 taco_setParameters;
 taco_start;
 
+%% setup eyetracker
 if strcmp(Info.track,'y')
     % = % Start Eyetracking
     [el,exitFlag]        	= rd_eyeLink('eyestart', wPtr, Info.eyefile);
@@ -25,11 +23,11 @@ if strcmp(Info.track,'y')
     
     % = % Start recording
     rd_eyeLink('startrecording',wPtr, el);
-    useEyetrack        	= 1;
+    useEyetrack             = 1;
 end
 
 %% Load In / Create Targets beforehand to save time
-[AllStim]      	= taco_CreateAllTargets;
+[AllStim]                   = taco_CreateAllTargets;
 
 if strcmp(Info.debug,'no')
     HideCursor;
@@ -155,7 +153,7 @@ for ntrial = 1:height(Info.TrialInfo)
     % error occurs.
     
     if strcmp(Info.runtype,'train') 
-        if ntrial == Info.blocklength
+        if ntrial == height(Info.TrialInfo)
             h_emptybitsi;
             taco_BlockEnd(1:Info.blocklength);toc;
             save(Info.logfilename,'Info','-v7.3');
