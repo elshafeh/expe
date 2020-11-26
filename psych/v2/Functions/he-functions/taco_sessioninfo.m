@@ -4,7 +4,7 @@ global Info
 
 clc;fprintf('\n');
 isnew                           = input('Start a new session?    [y/n]    : ','s');
-prev_sub                        = length(dir('Logfiles/p*/p*_taco_v2_block_Logfile.mat'));
+prev_sub                        = length(dir('/data/Users/hesels/taco/psych/v2/Logfiles/p*'));
 
 switch isnew
     case 'y'
@@ -43,7 +43,7 @@ switch isnew
                 Info.runtype  	= 'block';
         end
         
-        Info.difficulty       	= input('[1 - 10] [easy-difficult]        : '); % Target contrast
+        Info.difficulty       	= input('[1 - 20] [easy-difficult]        : '); % Target contrast
 
         
 end
