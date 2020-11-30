@@ -49,21 +49,21 @@ switch isnew
 end
 
 
-Info.gratingframes        	= 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
-Info.debug                 	= 'no' ; % if yes: you open smaller window (for debugging)
-Info.MotorResponse        	= 'yes'; % if no: you disable bitsi responses (for debugging)
+Info.gratingframes              = 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
+Info.debug                      = 'no' ; % if yes: you open smaller window (for debugging)
+Info.MotorResponse              = 'yes'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
     case 'block'
-        Info.track         	= 'n'; %input('Launch eye-tracking  [y/n]     : ','s'); % launch eye_tracking
+        Info.track              = input('Launch eye-tracking  [y/n]     : ','s'); % launch eye_tracking
         if strcmp(Info.track,'y')
             Info.tracknumber  	= input('tracking session number       	: ','s'); % keep tracking of how many training sessions
-            Info.eyefile   	= [Info.name(4:end) '00' Info.tracknumber];
+            Info.eyefile        = [Info.name(4:end) '00' Info.tracknumber];
         end
-        Info.blocklength   	= 32;
+        Info.blocklength        = 32;
         
     case 'train'
-        Info.runnumber     	= num2str(length(dir(['Logfiles' filesep Info.name filesep '*train*']))+1);
-        Info.track        	= 'n';
-        Info.blocklength   	= 16;
+        Info.runnumber          = num2str(length(dir(['Logfiles' filesep Info.name filesep '*train*']))+1);
+        Info.track              = 'n';
+        Info.blocklength        = 16;
 end

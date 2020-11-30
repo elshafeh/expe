@@ -39,7 +39,7 @@ cbPalette_2         <-c("#CC6666", "#4E84C4")
 
 pd                  <- position_dodge(0.2)
 
-data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/me/expe/taco/analysis/taco_behavpilot_singletrial.txt",sep = ',',header=T)
+data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/taco/psych/v1/analysis/taco_behavpilot_singletrial.txt",sep = ',',header=T)
 data_table$bloc     <- factor(data_table$bloc , levels = c("fix-fix","jit-fix","fix-jit"))
 data_table_correct  <- data_table[data_table$correct==1,]
 
@@ -64,15 +64,18 @@ sum_table_rt   <- data_table_correct %>%
   mutate(tot= median(rt))%>%
   summarise(rt = max(tot))
 
+avg_rt = mean(sum_table_rt$rt)
+avg_ac = mean(sum_table_acc$accuracy)
+
 p1 <- ggplot(sum_table_acc, aes(x=suj, y=accuracy, label=suj)) +
   geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Accuracy (n = ",nb_suj,")"))+
   theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
-  ylim(lim_perc)
+  ylim(lim_perc)+geom_hline(yintercept = avg_ac,linetype="dashed", color = "black")
 
 p2 <- ggplot(sum_table_rt, aes(x=suj, y=rt, label=suj)) +
   geom_point(show.legend = FALSE,size=3)+ggtitle(paste0("Median RT"))+
   theme(text = element_text(size=14),axis.title.x=element_blank(),axis.title.y=element_blank())+
-  ylim(lim_rt)
+  ylim(lim_rt)+geom_hline(yintercept = avg_rt,linetype="dashed", color = "black")
 
 ggarrange(p1,p2,ncol = 1, nrow = 2)
 

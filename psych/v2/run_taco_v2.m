@@ -46,7 +46,7 @@ h_emptybitsi;
 % just in case during one of the blocks , an error happened and the
 % experiment needed to be restarded : this script will make sure to restart
 % from the block with the missing trials
-strt                                    = 1; %taco_check_start(Info);
+strt                                    = taco_check_start(Info);
 
 for ntrial = 1:height(Info.TrialInfo)
     
@@ -55,9 +55,9 @@ for ntrial = 1:height(Info.TrialInfo)
     
     fprintf('Trial no %3d \n',ix);
     
-    %         if ~strcmp(Info.runtype,'train')
-    %             taco_headlocaliserbreak;
-    %         end
+    if ~strcmp(Info.runtype,'train')
+        taco_headlocaliserbreak;
+    end
     
     if nw_b_flg == 1
         taco_BlockStart;
@@ -116,7 +116,7 @@ for ntrial = 1:height(Info.TrialInfo)
     
     %% Draw probe
     stim.order                       	= 3;
-    stim.code                          	= 30 + Info.TrialInfo(ix,:).samp2Class;
+    stim.code                          	= 30 + Info.TrialInfo(ix,:).probeClass;
     stim.t_offset                       = tcue3;
     stim.t_wait                         = (Info.TrialInfo(ix,:).crit_soa - CueInfo.dur);
     [t1,t2]                             = taco_drawstim(AllStim{ntrial,stim.order});
