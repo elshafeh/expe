@@ -42,16 +42,22 @@ if strcmp(Info.runtype,'block')
     % create latin square for block order ; here 4 and 3 are jittered
     % thus 50:50 fixed:jittered
     
-    possibJitter   	= [1 2 4 3
-                        2 3 1 4
-                        3 4 2 1
-                        4 1 3 2];
-    possibJitter    = repmat(possibJitter,16,1);
+    possibBlock     = [3	4	2	3	2	1	1	4
+                        4	1	3	2	1	4	3	2
+                        4	1	1	4	3	3	2	2
+                        1	2	3	4	1	2	4	3
+                        1	4	2	2	3	3	1	4
+                        2	3	1	1	4	2	4	3
+                        3	2	4	1	2	4	3	1
+                        2	3	4	3	4	1	2	1];
+                    
+    possibJitter    = repmat(possibBlock,7,1); clear possibBlock;
     
-    tmp             = strsplit(Info.name,'p');tmp = str2double(tmp{end});
+    subject_prefix      = 'sub';
+    tmp                 = strsplit(Info.name,subject_prefix);tmp = str2double(tmp{end});
     
     if isnan(tmp) || tmp == 0
-        tmp      	= randi(length(possibJitter));
+        tmp             = randi(length(possibJitter));
         possibJitter	= possibJitter(tmp,:); clear tmp;
     else
         possibJitter   	= possibJitter(tmp,:); clear tmp;
@@ -165,7 +171,8 @@ for njitter = 1:length(possibJitter)
                 
             case 3
                 % fixed-jittered
-                possibSOA                           = linspace(1.5,3.5,length(trial_structure));
+                possibSOA                           = linspace(1.5,3.5,length(trial_structure)/2);
+                possibSOA                           = repmat(possibSOA,[1 2]);
                 possibISI                           = repmat(1.5,length(trial_structure),3); % cue-1st 1st-2nd 2nd-cue
                 
                 for nt = 1:length(trial_structure)

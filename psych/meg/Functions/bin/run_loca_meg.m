@@ -8,22 +8,22 @@ global wPtr scr stim Info
 
 %% get subject info
 
-prev_sub              	= length(dir('Logfiles/sub*'));
+subject_prefix          = 'sub';
+prev_sub              	= length(dir(['Logfiles/' subject_prefix '*']));
 nw_numb                	= prev_sub;
 if nw_numb < 10
-    Info.name          	= ['sub00' num2str(nw_numb)];
+    Info.name          	= [subject_prefix '00' num2str(nw_numb)];
 elseif nw_numb > 10
-    Info.name        	= ['sub0' num2str(nw_numb)];
+    Info.name        	= [subject_prefix '0' num2str(nw_numb)];
 end
 
 Info.runtype            = 'loca';
-
 tmp                     = load(['Logfiles/' Info.name '/' Info.name '_taco_meg_block_Logfile.mat']);
 Info.difficulty       	= tmp.Info.difficulty; clear tmp;
 
 Info.gratingframes    	= 6;      	% 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 Info.debug            	= 'no' ; 	% if yes: you open smaller window (for debugging)
-Info.MotorResponse    	= 'no';     % if no: you disable bitsi responses (for debugging)
+Info.MotorResponse    	= 'yes';     % if no: you disable bitsi responses (for debugging)
 
 Info.track              = 'n';
 Info.blocklength        = 200;

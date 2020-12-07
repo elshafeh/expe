@@ -3,11 +3,10 @@ function loca_end
 global wPtr scr stim Info
 h_emptybitsi;
 
-
 endtext2                    = '\n\n\nPlease Take Some Rest :) \n\n\n And press any button to continue';
 
 taco_darkenBackground;
-DrawFormattedText(wPtr, [endtext1 endtext2], 'center', 'center', scr.black);
+DrawFormattedText(wPtr, [endtext2], 'center', 'center', scr.black);
 Screen('Flip', wPtr);
 
 if strcmp(Info.MotorResponse,'yes')

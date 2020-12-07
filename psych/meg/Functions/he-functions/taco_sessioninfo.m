@@ -2,18 +2,20 @@ function taco_sessioninfo
 
 global Info
 
+subject_prefix                  = 'sub';
+
 clc;fprintf('\n');
 isnew                           = input('Start a new session?    [y/n]    : ','s');
-prev_sub                        = length(dir('Logfiles/p*'));
+prev_sub                        = length(dir(['Logfiles/' subject_prefix '*']));
 
 switch isnew
     case 'y'
         
         nw_numb                 = prev_sub+1;
         if nw_numb < 10
-            Info.name           = ['p00' num2str(nw_numb)];
+            Info.name           = [subject_prefix '00' num2str(nw_numb)];
         elseif nw_numb > 10
-            Info.name           = ['p0' num2str(nw_numb)];
+            Info.name           = [subject_prefix '0' num2str(nw_numb)];
         end
         
         Info.runtype            = 'train';
@@ -24,9 +26,9 @@ switch isnew
         
         nw_numb                 = prev_sub;
         if nw_numb < 10
-            Info.name           = ['p00' num2str(nw_numb)];
+            Info.name           = [subject_prefix '00' num2str(nw_numb)];
         elseif nw_numb > 10
-            Info.name           = ['p0' num2str(nw_numb)];
+            Info.name           = [subject_prefix '0' num2str(nw_numb)];
         end
         
         runanswer               = input('Training or main block? [t/b]    : ','s');
@@ -51,13 +53,13 @@ end
 
 Info.gratingframes              = 6; % 1frame: 0.0167    6frame: 0.1000    7frame: 0.1167 8frame: 0.1333
 Info.debug                      = 'no' ; % if yes: you open smaller window (for debugging)
-Info.MotorResponse              = 'yes'; % if no: you disable bitsi responses (for debugging)
+Info.MotorResponse              = 'no'; % if no: you disable bitsi responses (for debugging)
 
 switch Info.runtype
     case 'block'
-        Info.track              = input('Launch eye-tracking  [y/n]     : ','s'); % launch eye_tracking
+        Info.track              = input('Launch eye-tracking  [y/n]       : ','s'); % launch eye_tracking
         if strcmp(Info.track,'y')
-            Info.tracknumber  	= input('tracking session number       	: ','s'); % keep tracking of how many training sessions
+            Info.tracknumber  	= input('tracking session number       	 : ','s'); % keep tracking of how many training sessions
             Info.eyefile        = [Info.name(4:end) '00' Info.tracknumber];
         end
         Info.blocklength        = 32;

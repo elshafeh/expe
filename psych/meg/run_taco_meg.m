@@ -41,8 +41,8 @@ for nstim = 1:2
 end
 
 h_emptybitsi;
-%% Loop Through Trials
 
+%% Loop Through Trials
 % just in case during one of the blocks , an error happened and the
 % experiment needed to be restarded : this script will make sure to restart
 % from the block with the missing trials
@@ -72,7 +72,7 @@ for ntrial = strt:height(Info.TrialInfo)
     
     % choose which mapping will be shown
     ctl.maptype                         = Info.TrialInfo(ix,:).mapping;
-    ctl.tmpSRMapping                    = Info.resp_map{Info.TrialInfo(ix,:).mapping}; 
+    ctl.tmpSRMapping                    = Info.resp_map{Info.TrialInfo(ix,:).mapping};
     ctl.expectedRep                     = ctl.tmpSRMapping(ctl.tmpSRMapping(:,2) == Info.TrialInfo(ix,:).ismatch,1);
     
     %% Draw the first cue
@@ -80,7 +80,10 @@ for ntrial = strt:height(Info.TrialInfo)
     CueInfo.t_wait                      = Info.TrialInfo(ix,:).ITI;
     CueInfo.code                        = (CueInfo.order*100) + (CueInfo.type*10) + (CueInfo.attend);
     if nw_b_flg ~= 1
-        CueInfo.t_offset            	= tfin; clear tfin;
+        if exist('tfin','var')
+            fprintf('previous cue offset found\n');
+            CueInfo.t_offset          	= tfin; clear tfin;
+        end
     end
     [tcue1,tcue2,tcue3]                	= taco_drawcue(CueInfo);
     
@@ -93,7 +96,7 @@ for ntrial = strt:height(Info.TrialInfo)
     [t1,t2]                             = taco_drawstim(AllStim{ntrial,stim.order});
     
     Info.TrialInfo.trigtime{ix}         = [Info.TrialInfo.trigtime{ix};tcue1;tcue2;tcue3;t1;t2];
-        
+    
     %% Draw 2nd sample
     stim.dur.ISI                        = Info.TrialInfo(ix,:).ISI(2); % 2nd delay
     stim.order                       	= 2;
@@ -102,9 +105,9 @@ for ntrial = strt:height(Info.TrialInfo)
     stim.t_wait                         = stim.dur.ISI-stim.dur.target;
     [t1,t2]                             = taco_drawstim(AllStim{ntrial,stim.order});
     
-    Info.TrialInfo.trigtime{ix}      	= [Info.TrialInfo.trigtime{ix};t1;t2]; 
+    Info.TrialInfo.trigtime{ix}      	= [Info.TrialInfo.trigtime{ix};t1;t2];
     
-    %% Draw the second cue    
+    %% Draw the second cue
     stim.dur.ISI                        = Info.TrialInfo(ix,:).ISI(3); % 3rd delay
     CueInfo.order                       = 2;
     CueInfo.t_wait                      = stim.dur.ISI-stim.dur.target;
@@ -144,7 +147,7 @@ for ntrial = strt:height(Info.TrialInfo)
     
     %% End Trial
     tfin                             	= taco_endTrial;
-
+    
     h_emptybitsi;
     
     %% End block
@@ -152,7 +155,7 @@ for ntrial = strt:height(Info.TrialInfo)
     % after each block it will do that in the background just in case an
     % error occurs.
     
-    if strcmp(Info.runtype,'train') 
+    if strcmp(Info.runtype,'train')
         if ntrial == height(Info.TrialInfo)
             h_emptybitsi;
             taco_BlockEnd(1:Info.blocklength);toc;
@@ -174,23 +177,89 @@ for ntrial = strt:height(Info.TrialInfo)
     end
     
     h_emptybitsi;
-
+    
     clear CueInfo nw_b_flg
     
 end
-
-% = % end experiment and save data (including eye tracking)
-if useEyetrack, rd_eyeLink('eyestop', wPtr, {Info.eyefile, Info.eyefolder}); end
-
-sca;
-ShowCursor;
-
-clearvars -except Info;
 
 % make sure that performances are saved
 save(Info.logfilename,'Info','-v7.3');
 
 % to give idea on behavioral peformances
 taco_analyzebehav(Info.TrialInfo);
+
+%% run localizer
+
+if strcmp(Info.runtype,'block')
+    
+    Info                    = rmfield(Info,'TrialInfo');
+    Info.runtype            = 'loca';
+    Info.blocklength        = 200;
+    
+    Info.logfilename        = [Info.logfolder filesep  Info.name '_taco_meg_' Info.runtype '.mat'];
+    
+    Info.TrialInfo          = loca_createAllTrials;
+    [AllStim]            	= taco_CreateAllTargets;
+    
+    if strcmp(Info.debug,'no')
+        h_emptybitsi;
+    end
+    
+    loca_instruct;
+    taco_headlocaliserbreak;
+    
+    for ntrial = 1:height(Info.TrialInfo)
+        
+        ix                       	= ntrial;
+        
+        h_emptybitsi;
+        
+        if ntrial == 1
+            taco_drawFixation;
+            tstart               	= Screen('Flip', wPtr);
+            taco_darkenBackground;
+        else
+            tstart               	= tfin;
+        end
+        
+        
+        fprintf('Trial no %3d \n',ix);
+        
+        stim.dur.ISI              	= Info.TrialInfo(ix,:).ISI(1);
+        
+        if Info.TrialInfo(ix,:).color == 1
+            stim.patch.FixColor 	= scr.black;
+        else
+            stim.patch.FixColor 	= scr.white;
+        end
+        
+        stim.code                 	= 70 + Info.TrialInfo(ix,:).sampClass;
+        stim.t_offset             	= tstart;
+        stim.t_wait               	= (stim.dur.ISI-stim.dur.target);
+        
+        [t1,t2]                   	= taco_drawstim(AllStim{ntrial,1});
+        Info.TrialInfo.trigtime{ix}	= [Info.TrialInfo.trigtime{ix};tstart;t1;t2];
+        
+        tfin                       	= taco_endTrial;
+        h_emptybitsi;
+        
+    end
+    
+    %% end , save and clean-up
+    
+    loca_end;
+    
+    save(Info.logfilename,'Info','-v7.3');
+    h_emptybitsi;
+    
+end
+
+%% end experiment and save data (including eye tracking)
+if useEyetrack, rd_eyeLink('eyestop', wPtr, {Info.eyefile, Info.eyefolder}); end
+
+sca;
+ShowCursor;
+
+clearvars -except Info;
 
 toc;
