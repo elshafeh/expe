@@ -15,9 +15,12 @@ end
 
 possibStim          = repmat(possibStim,[Info.blocklength/4 1]);
 
+% add catach trials
+possibDeg           = [repmat(90,Info.blocklength * 0.9,1);repmat(180,Info.blocklength * 0.1,1)];
+possibDeg          	= possibDeg(randperm(length(possibDeg)));
+
 clear possib1 possib2;
 
-StimDeg             = 90;
 
 % adapt difference between frequenceies
 % aka poor man's staircase
@@ -36,6 +39,7 @@ for nt = 1:length(possibStim)
     samp_freq                    	= possibStim(nt,1);
     samp_fix                     	= possibStim(nt,2);
     
+    StimDeg                         = possibDeg(nt);
     bloc_structure(nt).samp         = [StimDeg StimCyc(samp_freq)];
     bloc_structure(nt).color        = samp_fix;
     
@@ -46,7 +50,11 @@ for nt = 1:length(possibStim)
     bloc_structure(nt).trigtime  	= [];
     bloc_structure(nt).ISI          = possibISI(nt);
     
-    bloc_structure(nt).sampClass  	= possibStim(nt,3);
+    if StimDeg == 90
+        bloc_structure(nt).sampClass  	= possibStim(nt,3);
+    else
+        bloc_structure(nt).sampClass  	= possibStim(nt,5);
+    end
     
 end
 

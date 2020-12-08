@@ -3,7 +3,7 @@ function loca_instruct
 global wPtr scr stim Info
 
 taco_darkenBackground;
-DrawFormattedText(wPtr, 'Please fixate on the center of screen \n\n Press any button to continue', 'center', 'center', scr.black);
+DrawFormattedText(wPtr, 'Please fixate on the center of screen & count the number of the horizontal stimuli\n\n Press any button to continue', 'center', 'center', scr.black);
 Screen('Flip', wPtr);
 
 if strcmp(Info.MotorResponse,'yes')
