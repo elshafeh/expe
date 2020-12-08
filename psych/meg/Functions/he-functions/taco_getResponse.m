@@ -16,6 +16,11 @@ switch ctl.maptype
 end
 
 t_disp                      = Screen('Flip', wPtr,ctl.t_offset+ctl.t_wait - scr.ifi/2);
+
+if IsLinux
+    scr.b.sendTrigger(77); % send mask trigger
+end
+
 t_report                 	= GetSecs;
 
 if IsLinux

@@ -55,12 +55,13 @@ for ntrial = strt:height(Info.TrialInfo)
     
     fprintf('Trial no %3d \n',ix);
     
-    if ~strcmp(Info.runtype,'train')
-        taco_headlocaliserbreak;
-    end
-    
     if nw_b_flg == 1
+        h_emptybitsi;
+        if ~strcmp(Info.runtype,'train')
+            taco_headlocaliserbreak;
+        end
         taco_BlockStart;
+        h_emptybitsi;
     end
     
     h_emptybitsi;
