@@ -1,14 +1,16 @@
 clear;clc;
 
-flist                                 	= dir('../Logfiles/p*');
+flist                                 	= dir('../Logfiles/sub*');
 suj_list                              	= {};
 % automatically count subjects
 for nf = 1:length(flist)
-    sujname                           	= strsplit(flist(nf).name,'-bpilot'); 
-    suj_list{end+1}                   	= sujname{1}; clear sujname;
+    sujname                           	= flist(nf).name;
+    suj_list{end+1}                   	= sujname; clear sujname;
 end
 
 suj_list                              	= unique(suj_list);
+
+%%
 
 i                                       = 0;
 
@@ -16,7 +18,7 @@ for nsuj = 1:length(suj_list)
     
     %load log file
     subjectname                         = suj_list{nsuj};
-    filename                            = ['../Logfiles/' subjectname '/' subjectname '_taco_v2_block_Logfile.mat'];
+    filename                            = ['../Logfiles/' subjectname '/' subjectname '_taco_meg_block_Logfile.mat'];
     fprintf('loading %s\n',filename);
     load(filename);
     
@@ -55,4 +57,4 @@ end
 keep behav_summary
 
 behav_summary                           = struct2table(behav_summary);
-writetable(behav_summary,'taco_v2_behavpilot_singletrial.txt');
+writetable(behav_summary,'taco_meg_singletrial.txt');

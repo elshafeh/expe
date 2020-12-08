@@ -53,7 +53,7 @@ for nt = 1:length(possibStim)
     if StimDeg == 90
         bloc_structure(nt).sampClass  	= possibStim(nt,3);
     else
-        bloc_structure(nt).sampClass  	= possibStim(nt,5);
+        bloc_structure(nt).sampClass  	= 5; % for horizontal gratings
     end
     
 end

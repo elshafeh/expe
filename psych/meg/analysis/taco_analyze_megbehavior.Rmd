@@ -21,7 +21,7 @@ This is how i'm analyzing the behavioral data from the pilots! and also a way fo
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. Or you can type in render("Dropbox/project_bike/analysis/bike_analyzebehav.Rmd").
 
-![](/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/Doc/taco v2 design.png)
+![](/Users/heshamelshafei/Documents/GitHub/taco/psych/meg/Doc/taco v2 design.png)
 
 ```{r,message=FALSE,echo=FALSE}
 rm(list=ls())
@@ -32,9 +32,9 @@ cbPalette_2         <-c("#CC6666", "#4E84C4")
 pd                  <- position_dodge(0.2)
 
 # run matlab to get data
-run_matlab_script("/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/analysis/taco_beh4R_mod_v2.m", verbose = TRUE)
+# run_matlab_script("/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/analysis/taco_beh4R_mod_v2.m", verbose = TRUE)
 
-data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/taco/psych/v2/analysis/taco_v2_behavpilot_singletrial.txt", sep = ',',header=T)
+data_table          <- read.table("/Users/heshamelshafei/Documents/GitHub/taco/psych/meg/analysis/taco_meg_singletrial.txt", sep = ',',header=T)
 data_table$bloc     <- factor(data_table$bloc , levels = c("early","late","jittered")) # re-order factor names
 data_table_correct  <- data_table[data_table$correct==1,] # use only correct trials to compute RT
 
@@ -124,14 +124,15 @@ p2 <- ggplot(tgc_rt, aes(x=bloc, y=rt)) +
 
 ggarrange(p1,p2,ncol = 2, nrow = 1)
 
-jitter    <- sum_table_acc$bloc
-accuracy  <- sum_table_acc$accuracy 
-pairwise.t.test(accuracy, jitter, p.adj = "bonferroni",paired = TRUE)
-
-jitter    <- sum_table_rt$bloc
-rt        <- sum_table_rt$rt 
-pairwise.t.test(rt, jitter, p.adj = "bonferroni",paired = TRUE)
-
+if (nb_suj > 3){
+  jitter    <- sum_table_acc$bloc
+  accuracy  <- sum_table_acc$accuracy 
+  pairwise.t.test(accuracy, jitter, p.adj = "bonferroni",paired = TRUE)
+  
+  jitter    <- sum_table_rt$bloc
+  rt        <- sum_table_rt$rt 
+  pairwise.t.test(rt, jitter, p.adj = "bonferroni",paired = TRUE)
+}
 ```
 
 ## Plot performance across jitter and cue/attend conditions

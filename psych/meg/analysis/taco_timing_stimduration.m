@@ -18,7 +18,7 @@ for nsuj = 1:length(suj_list)
     
     % load log file
     subjectname   	= suj_list{nsuj};
-    filename      	= ['../Logfiles/' subjectname '/' subjectname '_taco_v2_block_Logfile.mat'];
+    filename      	= ['../Logfiles/' subjectname '/' subjectname '_taco_meg_block_Logfile.mat'];
     fprintf('loading %s\n',filename);
     load(filename);
     
