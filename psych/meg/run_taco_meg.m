@@ -228,11 +228,13 @@ if strcmp(Info.runtype,'block')
         
         stim.dur.ISI              	= Info.TrialInfo(ix,:).ISI(1);
         
-        if Info.TrialInfo(ix,:).color == 1
-            stim.patch.FixColor 	= scr.black;
-        else
-            stim.patch.FixColor 	= scr.white;
-        end
+        %         if Info.TrialInfo(ix,:).color == 1
+        %             stim.patch.FixColor 	= scr.black;
+        %         else
+        %             stim.patch.FixColor 	= scr.white;
+        %         end
+        
+        stim.patch.FixColor         = scr.gray/2;
         
         stim.code                 	= 70 + Info.TrialInfo(ix,:).sampClass;
         stim.t_offset             	= tstart;
