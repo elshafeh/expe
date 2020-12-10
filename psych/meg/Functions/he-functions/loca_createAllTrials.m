@@ -60,4 +60,4 @@ end
 
 clearvars -except bloc_structure
 
-bloc_structure                      = struct2table(bloc_structure);
+bloc_structure                      = struct2table(bloc_structure(randperm(length(bloc_structure))));
